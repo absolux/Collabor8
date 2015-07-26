@@ -43,7 +43,8 @@ require.config({
     config: {
         app: {
             'locale': 'en',
-            'root': "/"
+            'root': "/C8/",
+            'api': "http://localhost/C8/public/api/"
         }
     },
     

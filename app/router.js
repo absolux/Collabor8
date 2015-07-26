@@ -29,7 +29,9 @@ define(function(require, exports, module) {
     var Marionette = require('backbone.marionette');
     
     var Router = Marionette.AppRouter.extend({
-        appRoutes: {}
+        appRoutes: {
+            
+        }
     });
     
     module.exports = Router;

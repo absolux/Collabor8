@@ -1,11 +1,11 @@
 {
-    "name": "backbone-marionette-boilerplate",
+    "name": "Collabor8",
     "dependencies": {
-        "requirejs": "*",
-        "jquery": "*",
-        "marionette": "*",
-        "lodash-template-loader": "*",
-        "bootstrap": "*"
+        "requirejs": "2.1.*",
+        "jquery": "2.1.*",
+        "marionette": "2.4.*",
+        "lodash-template-loader": "1.0.*",
+        "bootstrap": "3.3.*"
     },
     "devDependencies": {}
 }
