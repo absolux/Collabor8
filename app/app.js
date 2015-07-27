@@ -56,7 +56,7 @@ define(function(require, exports, module) {
         
         onStart: function(options) {
             if (! Backbone.history.started ) {
-                Backbone.history.start({pushState: true, root: this.root});
+                Backbone.history.start({pushState: false, root: this.root});
             }
         }
     });

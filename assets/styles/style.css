@@ -26,3 +26,9 @@ THE SOFTWARE.
 
 @import url('design.css');
 @import url('theme.css');
+
+/* custom styles --------------------------------*/
+
+#navigation #brand {
+    background-image: none; 
+}
