@@ -43,8 +43,9 @@ require.config({
     config: {
         app: {
             'locale': 'en',
-            'root': "/C8/",
-            'api': "http://localhost/C8/public/api/"
+            'root': "/collabor8/",
+            'api': "http://localhost/collabor8/api/",
+            'header': "X-Auth-Token"
         }
     },
     

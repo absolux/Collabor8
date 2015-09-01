@@ -22,43 +22,22 @@
  * THE SOFTWARE.
  */
 
-define(function(require, exports, module) {
+define(function(require, exports) {
     'use strict';
     
-    // dependencies
-    var Backbone = require('backbone');
-    var Marionette = require('backbone.marionette');
-    var Router = require('router');
-    var Layout = require('views/layout');
+    exports.set = function(key, value) {
+        window.sessionStorage.setItem(key, value);
+    };
     
-    // options names
-    var defaultOptions = ['locale', 'root', 'api', 'header'];
+    exports.get = function(key) {
+        return window.sessionStorage.getItem(key);
+    };
     
-    // Application class
-    var Application = Marionette.Application.extend({
-        initialize: function() {
-            this.mergeOptions(module.config(), defaultOptions);
-            
-            // define app router
-            this.router = new Router();
-            
-            // define app layout
-            this.layout = new Layout();
-            
-            // define session app module
-            this.session = require('lib/session');
-        },
-        
-        onBeforeStart: function() {
-            this.layout.render();
-        },
-        
-        onStart: function(options) {
-            if (! Backbone.history.started ) {
-                Backbone.history.start({pushState: false, root: this.root});
-            }
-        }
-    });
+    exports.flush = function() {
+        window.sessionStorage.clear();
+    };
     
-    module.exports = new Application();
+    exports.has = function(key) {
+        return this.get(key) !== 'undefined';
+    };
 });
