@@ -59,5 +59,38 @@ require.config({
 require(['app'], function(app) {
     'use strict';
     
+    // JQuery global event handlers
+    $(document).ajaxSend(function(event, jqXHR, options) {
+        // prepend api url
+        options.url = app.api + encodeURIComponent(options.url);
+        
+        // set token header
+        jqXHR.setRequestHeader(app.header, app.session.get('user.token'));
+    });
+    
+    $(document).ajaxError(function(event, jqXHR, options, thrownError) {
+        if ( jqXHR.statusCode(401) ) {
+            app.redirect('/login');
+        }
+    });
+    
+    $(document).ajaxSuccess(function(event, jqXHR, options) {
+        var token = jqXHR.getResponseHeader(app.header);
+        
+        if ( token ) {
+            try {
+                var payload = token.split('.')[1];
+                data = JSON.parse(atob(payload));
+                
+                app.session.set('user.token', token);
+                app.session.set('user.name', data.name);
+                app.session.set('user.email', data.email);
+            } catch (err) {
+                // Do nothing yet
+                // Next ajax call will catch 401 error, and trigger a redirect.
+            }
+        }
+    });
+    
     app.start();
 });

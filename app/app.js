@@ -26,6 +26,7 @@ define(function(require, exports, module) {
     'use strict';
     
     // dependencies
+    var _ = require('underscore');
     var Backbone = require('backbone');
     var Marionette = require('backbone.marionette');
     var Router = require('router');
@@ -57,6 +58,18 @@ define(function(require, exports, module) {
             if (! Backbone.history.started ) {
                 Backbone.history.start({pushState: false, root: this.root});
             }
+        },
+        
+        /**
+         * alias of router navigate function, with trigger option set to true
+         * 
+         * @param {string} fragment
+         * @param {object} options
+         */
+        redirect: function(fragment, options) {
+            options = _.extend({trigger: true}, options);
+            
+            this.router.navigate(fragment, options);
         }
     });
     
