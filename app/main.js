@@ -74,5 +74,4 @@ require(['app', 'jquery'], function(app, $) {
     });
     
     app.start();
-    app.notify("jdsbglkjfdn");
 });
