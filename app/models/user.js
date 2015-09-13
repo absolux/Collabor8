@@ -1,4 +1,4 @@
-/* 
+/**
  * 
  */
 
@@ -7,7 +7,17 @@ define(function(require, exports, module) {
     
     var Backbone = require('backbone');
     
-    var User = Backbone.Model.extend({});
+    var User = Backbone.Model.extend({
+        
+    });
     
-    module.exports = User;
+    var Users = Backbone.Collection.extend({
+        model: User,
+        
+        url: 'users',
+    });
+    
+    // module exports
+    exports.Model       = User;
+    exports.Collection  = Users;
 });

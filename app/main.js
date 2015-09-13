@@ -1,4 +1,4 @@
-/* 
+/**
  * 
  */
 
@@ -37,7 +37,7 @@ require.config({
 
 
 // kick off the application
-require(['app', 'jquery'], function(app, $) {
+require(['app', 'router', 'session', 'jquery'], function(app, router, session, $) {
     'use strict';
     
     // JQuery global event handlers
@@ -46,12 +46,12 @@ require(['app', 'jquery'], function(app, $) {
         options.url = app.api + encodeURIComponent(options.url);
         
         // set token header
-        jqXHR.setRequestHeader(app.header, app.session.get('user.token'));
+        jqXHR.setRequestHeader(app.header, session.get('user.token'));
     });
     
     $(document).ajaxError(function(event, jqXHR, options, thrownError) {
         if ( jqXHR.statusCode(401) ) {
-            app.redirect('#/login');
+            router.redirect('#/login');
         }
     });
     
@@ -63,9 +63,9 @@ require(['app', 'jquery'], function(app, $) {
                 var payload = token.split('.')[1],
                     data = JSON.parse(atob(payload));
                 
-                app.session.set('user.token', token);
-                app.session.set('user.name', data.name);
-                app.session.set('user.email', data.email);
+                session.set('user.token', token);
+                session.set('user.name', data.name);
+                session.set('user.email', data.email);
             } catch (err) {
                 // Do nothing yet
                 // Next ajax call will catch 401 error, and trigger a redirect.
