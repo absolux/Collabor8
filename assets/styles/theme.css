@@ -3425,8 +3425,9 @@ ul > li.satblue, .label-satblue {
 .theme-satblue .btn.btn-primary {
   background: #2c5e7b;
 }
-.theme-satblue.login {
+.theme-satblue.login, .theme-satblue .login {
   background: #2c5e7b;
+  height: 100%;
 }
 .theme-satblue a {
   color: #2c5e7b;

@@ -3,7 +3,7 @@
  */
 
 require.config({
-    baseUlr: "app",
+    baseUrl: "app",
     
     paths: {
         "toastr":               "../vendor/toastr/toastr",
@@ -30,6 +30,10 @@ require.config({
         }
     },
     
+    lodashLoader: {
+        root: "./tpl/"
+    },
+    
     shim: {
         'bootstrap': ['jquery']
     }
@@ -37,7 +41,7 @@ require.config({
 
 
 // kick off the application
-require(['app', 'router', 'session', 'jquery'], function(app, router, session, $) {
+require(['app', 'router', 'lib/session', 'jquery'], function(app, router, session, $) {
     'use strict';
     
     // JQuery global event handlers

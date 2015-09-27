@@ -8,9 +8,9 @@ define(function(require, exports, module) {
     var Marionette = require('backbone.marionette');
     
     var LayoutView = Marionette.LayoutView.extend({
-        el: 'body',
+        el: false,
         
-        template: require('template!tpl/layout'),
+        template: require('template!layout'),
         
         regions: {
             header: 'header',
@@ -19,5 +19,6 @@ define(function(require, exports, module) {
         }
     });
     
-    module.exports = LayoutView;
+    // retrurn an instance of the layout as a singleton
+    module.exports = new LayoutView();
 });
