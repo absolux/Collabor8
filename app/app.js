@@ -12,7 +12,7 @@ define(function(require, exports, module) {
     // Application class
     var Application = Marionette.Application.extend({
         initialize: function() {
-            var defaultOptions = ['locale', 'root'];
+            var defaultOptions = ['locale', 'root', 'api', 'header'];
             
             this.mergeOptions(module.config(), defaultOptions);
         },
@@ -21,7 +21,7 @@ define(function(require, exports, module) {
             var that = this;
             
             require(['router'], function() {
-                Backbone.history.start({pushState: true, root: that.root});
+                Backbone.history.start({pushState: false, root: that.root});
             });
         }
     });

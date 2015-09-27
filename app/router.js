@@ -14,7 +14,7 @@ define(function(require, exports, module) {
         },
         
         /**
-         * alias of navigate navigate, with trigger option set to true
+         * alias of navigate, with trigger option set to true
          * 
          * @param {string} fragment
          * @param {object} options
