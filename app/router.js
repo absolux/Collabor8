@@ -8,26 +8,12 @@ define(function(require, exports, module) {
     var _ = require('underscore');
     var Marionette = require('backbone.marionette');
     
-    var Controller = Marionette.Controller.extend({
-        login: function() {
-            require(['views/common/login', 'lib/ui/body-region'], function(LoginView, region) {
-                region.show(new LoginView());
-            });
-        },
-        
-        home: function() {
-            require(['lib/ui/body-region', 'views/layout'], function(region, layout) {
-                region.show(layout);
-            });
-        },
-    });
-    
     var Router = Marionette.AppRouter.extend({
-        controller: new Controller(),
+        controller: require('./controller'),
         
         appRoutes: {
-            '': 'home',
-            'login': "login"
+            '':         "home",
+            'login':    "login",
         },
         
         /**
