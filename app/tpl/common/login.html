@@ -1,28 +1,26 @@
-<div class="wrapper">
-	<h1>
-		<a href="#">Collabor8</a>
-	</h1>
-	<div class="login-body">
-		<h2>SIGN IN</h2>
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-center">Sign In Collabor8</h4>
+      </div>
+      <div class="modal-body">
 		<form class="login-form">
 			<div class="form-group">
 				<div class="email controls">
-					<input type="email" id="login-email-field" name='email' placeholder="Your email address" class='form-control' required="true" />
+					<label for="login-email-field">Your Email address</label>
+					<input type="email" id="login-email-field" name='email' class='form-control' required="true" />
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="pw controls">
-					<input type="password" id="login-password-field" name="password" placeholder="Your password" class='form-control' required="true" />
+					<label for="login-password-field">Your Password</label>
+					<input type="password" id="login-password-field" name="password" class='form-control' required="true" />
 				</div>
 			</div>
 			<div class="submit">
 				<input type="submit" value="Sign me in" class='btn btn-primary' />
 			</div>
 		</form>
-		<div class="forget">
-			<a href="#">
-				<span>Forgot password?</span>
-			</a>
-		</div>
-	</div>
-</div>
+      </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->

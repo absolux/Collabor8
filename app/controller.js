@@ -29,8 +29,8 @@ define(function(require, exports, module) {
 	});
 	
 	exports.login = function() {
-		require(['views/layout'], function(layout) {
-			// show login modal
+		require(['views/layout', 'views/common/login'], function(layout, LoginView) {
+			layout.showModal(new LoginView());
 		});
 	};
 	 

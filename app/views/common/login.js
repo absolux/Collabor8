@@ -6,9 +6,10 @@ define(function(require, exports, module) {
 	'use strict';
 	
 	var Marionette = require('backbone.marionette');
+	var bs = require('bootstrap');
 	
 	var View = Marionette.ItemView.extend({
-		className: 'login',
+		className: 'modal',
 		
 		ui: {
 			email: '#login-email-field',
@@ -24,6 +25,7 @@ define(function(require, exports, module) {
 		onLoginFormSubmitted: function(e) {
 			e.preventDefault();
 			
+			var that = this;
 			var data = {
 				'email': this.ui.email.val(),
 				'password': this.ui.pwd.val(),
@@ -31,8 +33,16 @@ define(function(require, exports, module) {
 			
 			require(['jquery', 'router', 'lib/ui/notifier'], function($, router, notifier) {
 				$.post('authenticate', data)
-				 .done(function() { router.redirect('#/'); })
+				 .done(function() { router.redirect('#/'); that.$el.modal('hide'); })
 				 .fail(function() { notifier.show("Invalid credentials !", "Login Failure", 'error'); });
+			});
+		},
+		
+		onShow: function() {
+			this.$el.modal({
+				backdrop: 'static',
+				keyword: false,
+				show: true,
 			});
 		},
 	});
