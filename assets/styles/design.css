@@ -9284,8 +9284,8 @@ label.inline {
 }
 
 body {
-  *background: #fff;
-  background-color: #eee;
+  background: #fff;
+  *background-color: #eee;
   font-family: 'Open Sans', sans-serif;
   font-size: 13px !important;
 }

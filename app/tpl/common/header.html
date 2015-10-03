@@ -1,0 +1,20 @@
+<div class="container-fluid">
+	<a href="#/" id="brand">Collabor8</a>
+	<div class="user">
+		<ul class="icon-nav">
+			<li>
+				<a href="#/account">
+					<i class="fa fa-user"></i>
+					<span><%= username %></span>
+				</a>
+			</li>
+			<% if ( isLoggedIn ) { %>
+			<li>
+				<a href="javascript:;" title="Sign out" class="btn-logout">
+					<i class="fa fa-power-off" style="color:red"></i>
+				</a>
+			</li>
+			<% } %>
+		</ul>
+	</div>
+</div>
