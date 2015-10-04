@@ -6,6 +6,7 @@ define(function(require, exports, module) {
     'use strict';
     
     var Marionette = require('backbone.marionette');
+    var bs = require('bootstrap');
     
     var View = Marionette.CompositeView.extend({
         template: require('template!common/sidebar'),

@@ -23,8 +23,8 @@ define(function(require, exports, module) {
 	};
 	
 	exports.home = afterLogin(function() {
-		require(['views/layout'], function(layout) {
-			// show home view
+		require(['views/layout', 'views/content/home'], function(layout, HomeView) {
+			layout.show(new HomeView());
 		});
 	});
 	

@@ -12,3 +12,13 @@
 #navigation #brand {
     background-image: none; 
 }
+
+#left a.add-project-btn {
+    line-height: 24px;
+    margin-right: 10px;
+    font-size: 16px; 
+}
+
+#left .projects-empty-message {
+    padding-left: 27px;
+}
