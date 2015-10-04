@@ -34,9 +34,11 @@ define(function(require, exports, module) {
             }
             
             if (! this.getRegion('sidebar').hasView() ) {
-                /*require(['views/common/siddebar'], function(Sidebar) {
-                    that.getRegion('sidebar').show(new Sidebar());
-                });*/
+                require(['views/common/siddebar', 'models/project'], function(Sidebar, Project) {
+                    var col = new Project.Collection();
+                    
+                    that.getRegion('sidebar').show(new Sidebar({collection: col}));
+                });
             }
             
             this.getRegion('content').show(view);
