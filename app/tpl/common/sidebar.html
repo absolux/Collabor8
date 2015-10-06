@@ -33,7 +33,7 @@
       </div>
       <div class="modal-body">
         <form class="create-form">
-            <div class="form-group">
+			<div class="form-group">
                 <label for="project-name-field">Project name</label>
                 <input type="text" class="form-control" id="project-name-field" name="name" required="true" />
             </div>
@@ -41,13 +41,12 @@
                 <label for="project-desc-field">Description</label>
                 <textarea id="project-desc-field" class="form-control" name="desc" rows="5"></textarea>
             </div>
-        </form>
+			<div class="submit text-right">
+				<input type="submit" value="Create" class='btn btn-sm btn-success create-project-btn' />
+                &nbsp;Or&nbsp;
+                <a href="javascript:;" data-dismiss="modal">Cancel</a>
+			</div>
+		</form>
       </div>
-      <div class="modal-footer">
-        <i class="fa fa-spinner fa-spin" style="display: none;"></i>&nbsp;&nbsp;
-        <button type="button" class="btn btn-sm btn-success" id="create-project-btn">Create</button>
-        &nbsp; Or &nbsp;
-        <a href="javascript:;" data-dismiss="modal">Cancel</a>    
-      </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

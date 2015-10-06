@@ -18,7 +18,7 @@ define(function(require, exports, module) {
         emptyView: require('./sidebar/no-projects-found'),
         
         ui: {
-            createBtn:  '#create-project-btn',
+            createBtn:  '.create-project-btn',
             nameField:  '#project-name-field',
             descField:  '#project-desc-field',
             dialog:     '#add-project-dialog',
@@ -27,7 +27,6 @@ define(function(require, exports, module) {
         },
         
         events: {
-            'click @ui.createBtn': 'onCreateFormSubmitted',
             'hidden.bs.modal @ui.dialog': 'resetCreateForm',
             'submit @ui.createForm': 'onCreateFormSubmitted',
         },

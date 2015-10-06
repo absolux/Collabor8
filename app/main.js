@@ -54,8 +54,18 @@ require(['app', 'router', 'lib/session', 'jquery'], function(app, router, sessio
     });
     
     $(document).ajaxError(function(event, jqXHR, options, thrownError) {
-        if ( jqXHR.statusCode(401) ) {
-            router.redirect('#/login');
+        switch ( jqXHR.status ) {
+            case 401: {
+                router.redirect('#/login');
+            }break;
+            
+            case 422: {
+                // Occures when invalid form submitted
+            }break;
+            
+            default: {
+                // Any error 
+            }
         }
     });
     

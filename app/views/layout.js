@@ -38,6 +38,7 @@ define(function(require, exports, module) {
                     var col = new Project.Collection();
                     
                     that.getRegion('sidebar').show(new Sidebar({collection: col}));
+                    col.fetch();
                 });
             }
             
