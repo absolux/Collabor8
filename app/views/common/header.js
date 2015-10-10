@@ -7,7 +7,6 @@ define(function(require, exports, module) {
 	
 	var Marionette = require('backbone.marionette');
 	var session = require('lib/session');
-	var router = require('router');
 	
 	var View = Marionette.ItemView.extend({
 		template: require('template!common/header'),
@@ -30,7 +29,7 @@ define(function(require, exports, module) {
 		onLogoutClicked: function() {
 			// TODO should notify the api to invalidate the token
 			session.flush();
-			router.redirect('#/');
+			require('router').redirect('#/');
 		},
 	});
 	

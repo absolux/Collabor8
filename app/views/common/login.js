@@ -33,8 +33,11 @@ define(function(require, exports, module) {
 			
 			require(['jquery', 'router', 'lib/ui/notifier'], function($, router, notifier) {
 				$.post('authenticate', data)
-				 .done(function() { router.redirect('#/'); that.$el.modal('hide'); })
-				 .fail(function() { notifier.show("Invalid credentials !", "Login Failure", 'error'); });
+				 .fail(function() { notifier.show("Invalid credentials !", "Login Failure", 'error'); })
+				 .done(function() { 
+					 that.$el.one('hidden.bs.modal', function() { console.log('hidden modal !') });
+					 that.$el.modal('hide');
+				 });
 			});
 		},
 		

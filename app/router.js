@@ -7,6 +7,7 @@ define(function(require, exports, module) {
     
     var _ = require('underscore');
     var Marionette = require('backbone.marionette');
+    var filter = require('backbone.routefilter');
     
     var Router = Marionette.AppRouter.extend({
         controller: require('./controller'),
@@ -29,6 +30,23 @@ define(function(require, exports, module) {
             this.navigate(fragment, options);
         },
         
+        /**
+         * 
+         */
+        before: function(route) {
+            if ( route === 'login' ) {
+                return true;
+            }
+            
+            var authenticated = require('lib/session').has('user.token');
+            
+            if (! authenticated ) {
+                //this.redirect('#/login');
+                this.controller.login();
+            }
+            
+            return authenticated;
+        },
     });
     
     module.exports = new Router;

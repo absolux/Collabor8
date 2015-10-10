@@ -12,6 +12,7 @@ require.config({
         "jquery":               "../vendor/jquery/dist/jquery",
         "backbone":             "../vendor/backbone/backbone",
         "backbone.marionette":  "../vendor/marionette/lib/backbone.marionette",
+        "backbone.routefilter": "../vendor/routefilter/dist/backbone.routefilter",
         "bootstrap":            "../vendor/bootstrap/dist/js/bootstrap"
     },
     
@@ -56,7 +57,7 @@ require(['app', 'router', 'lib/session', 'jquery'], function(app, router, sessio
     $(document).ajaxError(function(event, jqXHR, options, thrownError) {
         switch ( jqXHR.status ) {
             case 401: {
-                router.redirect('#/login');
+                router.controller.login();
             }break;
             
             case 422: {
