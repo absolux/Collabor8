@@ -10,7 +10,7 @@ define(function(require, exports, module) {
     var filter = require('backbone.routefilter');
     
     var Router = Marionette.AppRouter.extend({
-        controller: require('./controller'),
+        controller: require('./lib/controller'),
         
         appRoutes: {
             '':         "home",

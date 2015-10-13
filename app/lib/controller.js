@@ -18,8 +18,14 @@ define(function(require, exports, module) {
 	};
 	
 	exports.showTasks = function(id) {
-		require(['views/layout', 'views/content/project-tasks'], function(layout, TasksView) {
-			layout.show(new TasksView());
+		require(['views/layout', 'views/content/project-tasks', 'models/project'], 
+				function(layout, TasksView, Project) {
+			
+			Project.current(id).fetch({
+				success: function(project) {
+					layout.show(new TasksView({model: project}));
+				},
+			});
 		});
 	};
- });
+});
