@@ -1,16 +1,34 @@
-/* 
+/**
  * 
  */
 
 define(function(require, exports, module) {
     'use strict';
     
-    var App = require('app');
-    var Marionette = require('backbone.marionette');
+    var Backbone = require('backbone');
     
-    var Router = Marionette.AppRouter.extend({
-        appRoutes: {}
+    var Router = Backbone.Router.extend({
+        routes: {
+            '': 'goHome',
+        },
+        
+        execute: function(callback, args, name) {
+            if (! window.isLogged ) {
+                this.goLogin();
+                return false;
+            }
+            
+            if ( callback ) callback.apply(this, args); 
+        },
+        
+        goHome: function() {
+            console.log('home view');
+        },
+        
+        goLogin: function() {
+            console.log('login form');
+        },
     });
     
-    module.exports = Router;
+    module.exports = new Router;
 });

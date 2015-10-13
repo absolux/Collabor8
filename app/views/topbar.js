@@ -5,11 +5,9 @@
 define(function(require, exports, module) {
     'use strict';
     
-    var Marionette = require('backbone.marionette');
+    var Backbone = require('backbone.marionette');
     
-    var View = Marionette.ItemView.extend({
-        template: require('template!../templates/topbar')
+    module.exports = Backbone.View.extend({
+        template: require('template!topbar')
     });
-    
-    module.exports = View;
 });

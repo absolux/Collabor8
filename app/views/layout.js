@@ -7,26 +7,13 @@ define(function(require, exports, module) {
     
     require('bootstrap');
     
-    var Marionette = require('backbone.marionette');
-    var TopbarView = require('./topbar');
-    var SidebarView = require('./sidebar');
+    var Backbone = require('backbone');
     
-    var LayoutView = Marionette.LayoutView.extend({
+    module.exports = Backbone.View.extend({
         el: 'body',
         
-        template: require('template!../templates/layout'),
+        template: require('template!layout'),
         
-        regions: {
-            header: 'header',
-            sidebar: 'aside',
-            content: 'main'
-        },
         
-        onRender: function() {
-            this.header.show(new TopbarView());
-            this.sidebar.show(new SidebarView());
-        }
     });
-    
-    module.exports = LayoutView;
 });

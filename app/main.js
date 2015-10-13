@@ -1,9 +1,9 @@
-/*  
+/**
  * 
  */
 
 require.config({
-    baseUlr: "app",
+    baseUrl: "app",
     
     paths: {
         "underscore":           "../vendor/underscore/underscore",
@@ -29,6 +29,10 @@ require.config({
         }
     },
     
+    lodashLoader: {
+        root: "./templates/"
+    },
+    
     shim: {
         'bootstrap': ['jquery']
     }
@@ -36,21 +40,31 @@ require.config({
 
 
 // kick off the application
-require(['app'], function(app) {
+require(['jquery', 'app', 'router', 'lib/session'], function($, app, router, session) {
     'use strict';
     
     // JQuery global event handlers
     $(document).ajaxSend(function(event, jqXHR, options) {
         // prepend api url
-        options.url = app.api + encodeURIComponent(options.url);
+        options.url = app.api + options.url;
         
         // set token header
-        jqXHR.setRequestHeader(app.header, app.session.get('user.token'));
+        jqXHR.setRequestHeader(app.header, session.get('user.token'));
     });
     
     $(document).ajaxError(function(event, jqXHR, options, thrownError) {
-        if ( jqXHR.statusCode(401) ) {
-            app.redirect('/login');
+        switch ( jqXHR.status ) {
+            case 401: {
+                router.goLogin();
+            }break;
+            
+            case 422: {
+                // Occures when invalid form submitted
+            }break;
+            
+            default: {
+                // Any error 
+            }
         }
     });
     
@@ -62,15 +76,18 @@ require(['app'], function(app) {
                 var payload = token.split('.')[1],
                     data = JSON.parse(atob(payload));
                 
-                app.session.set('user.token', token);
-                app.session.set('user.name', data.name);
-                app.session.set('user.email', data.email);
+                session.set('user.token', token);
+                session.set('user.name', data.name);
+                session.set('user.email', data.email);
             } catch (err) {
                 // Do nothing yet
                 // Next ajax call will catch 401 error, and trigger a redirect.
             }
         }
     });
+    
+    // check user active session
+    window.isLogged = session.has('user.token');
     
     app.start();
 });

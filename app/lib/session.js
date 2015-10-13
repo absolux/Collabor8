@@ -1,4 +1,4 @@
-/* 
+/**
  * 
  */
 
@@ -18,6 +18,6 @@ define(function(require, exports) {
     };
     
     exports.has = function(key) {
-        return this.get(key) !== undefined;
+        return this.get(key) !== null;
     };
 });
