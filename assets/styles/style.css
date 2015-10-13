@@ -22,3 +22,17 @@
 #left .projects-empty-message {
     padding-left: 27px;
 }
+
+.page-header {
+    border-bottom: 1px solid #ddd;
+}
+
+.table.task-list tfoot > tr:hover > td {
+    background: #fff;
+}
+.table.task-list > tbody > tr:hover {
+    cursor: pointer;
+}
+.table.task-list > tbody > tr:first-child > td {
+    border-top: none;
+}

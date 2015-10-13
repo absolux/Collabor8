@@ -48,7 +48,7 @@ require(['app', 'router', 'lib/session', 'jquery'], function(app, router, sessio
     // JQuery global event handlers
     $(document).ajaxSend(function(event, jqXHR, options) {
         // prepend api url
-        options.url = app.api + encodeURIComponent(options.url);
+        options.url = app.api + options.url;
         
         // set token header
         jqXHR.setRequestHeader(app.header, session.get('user.token'));

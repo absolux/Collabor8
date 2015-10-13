@@ -15,6 +15,7 @@ define(function(require, exports, module) {
         appRoutes: {
             '':         "home",
             'login':    "login",
+            'p/:id/tasks':  "showTasks",
         },
         
         /**
