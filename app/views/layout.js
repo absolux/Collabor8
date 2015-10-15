@@ -9,11 +9,13 @@ define(function(require, exports, module) {
     
     var Backbone = require('backbone');
     
-    module.exports = Backbone.View.extend({
+    var Layout = Backbone.View.extend({
         el: 'body',
         
         template: require('template!layout'),
         
         
     });
+    
+    module.exports = new Layout();
 });
