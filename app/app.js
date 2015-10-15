@@ -12,6 +12,8 @@ define(function(require, exports, module) {
     _.defaults(exports, module.config());
     
     exports.start = function() {
+        require('views/layout').render();
+        
         if (! Backbone.history.started ) {
             Backbone.history.start({pushState: false, root: this.root});
         }

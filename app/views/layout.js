@@ -7,15 +7,34 @@ define(function(require, exports, module) {
     
     require('bootstrap');
     
-    var Backbone = require('backbone');
+    var Layout = require('backbone.layout');
     
-    var Layout = Backbone.View.extend({
+    var View = Layout.extend({
         el: 'body',
         
         template: require('template!layout'),
         
-        
+        /**
+         * render and show the main view
+         */
+        show: function(view) {
+            var self = this;
+            
+            require(['./header', './sidebar'], function(Header, Sidebar) {
+                // check if the header view is rendered
+                if (! self.getView('header') ) {
+                    self.setView('header', new Header()).render();
+                }
+                
+                // check if the sidebar is rendered
+                if (! self.getView('aside') ) {
+                    self.setView('aside', new Sidebar()).render();
+                }
+                
+                self.setView('main', view).render();
+            });
+        },
     });
     
-    module.exports = new Layout();
+    module.exports = new View();
 });

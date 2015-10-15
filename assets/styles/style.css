@@ -29,6 +29,18 @@ THE SOFTWARE.
 
 /* custom styles --------------------------------*/
 
+body {
+    background-color: #fff;
+}
+
+#navigation .container-fluid {
+    display: none;
+}
+
 #navigation #brand {
     background-image: none; 
+}
+
+#left {
+    width: 0;
 }
