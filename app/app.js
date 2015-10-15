@@ -9,14 +9,11 @@ define(function(require, exports, module) {
     var _ = require('underscore');
     var Backbone = require('backbone');
     
-    var app = _.extend(module.config(), {
-        
-        start: function() {
-            if (! Backbone.history.started ) {
-                Backbone.history.start({pushState: false, root: this.root});
-            }
-        },
-    });
+    _.defaults(exports, module.config());
     
-    module.exports = app;
+    exports.start = function() {
+        if (! Backbone.history.started ) {
+            Backbone.history.start({pushState: false, root: this.root});
+        }
+    };
 });

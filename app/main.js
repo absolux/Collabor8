@@ -6,11 +6,12 @@ require.config({
     baseUrl: "app",
     
     paths: {
+        "toastr":               "../vendor/toastr/toastr",
         "underscore":           "../vendor/underscore/underscore",
         "template":             "../vendor/lodash-template-loader/loader",
         "jquery":               "../vendor/jquery/dist/jquery",
         "backbone":             "../vendor/backbone/backbone",
-        "backbone.marionette":  "../vendor/marionette/lib/backbone.marionette",
+        "backbone.layout":      "../vendor/layoutmanager/backbone.layoutmanager",
         "bootstrap":            "../vendor/bootstrap/dist/js/bootstrap"
     },
     
