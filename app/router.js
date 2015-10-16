@@ -27,6 +27,9 @@ define(function(require, exports, module) {
         
         goLogin: function() {
             console.log('login form');
+            require(['views/login'], function(Login) {
+                (new Login()).render();
+            });
         },
     });
     
