@@ -23,7 +23,9 @@ define(function(require, exports, module) {
         },
         
         goHome: function() {
-            console.log('home view');
+            require(['views/layout', 'views/desk'], function(layout, Desk) {
+                layout.show(new Desk());
+            });
         },
         
         goLogin: function() {
