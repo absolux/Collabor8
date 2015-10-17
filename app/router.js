@@ -10,6 +10,7 @@ define(function(require, exports, module) {
     var Router = Backbone.Router.extend({
         routes: {
             '': 'goHome',
+            'tasks(/:project)': 'goTasks',
         },
         
         execute: function(callback, args, name) {
@@ -36,6 +37,16 @@ define(function(require, exports, module) {
             this._isLogin = true;
             require(['views/login'], function(Login) {
                 (new Login()).render();
+            });
+        },
+        
+        goTasks: function(id) {
+            require([
+                'views/layout', 
+                'views/tasks/tasks',
+                'views/tasks/my-tasks',
+            ], function(layout, TasksView, MyTasksView) {
+                layout.show((id === null) ? new MyTasksView() : new TasksView());
             });
         },
     });
