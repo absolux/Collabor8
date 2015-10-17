@@ -10,6 +10,7 @@ define(function(require, exports, module) {
     var Router = Backbone.Router.extend({
         routes: {
             '': 'goHome',
+            'calendar': 'goCalendar',
             'tasks(/:project)': 'goTasks',
         },
         
@@ -28,6 +29,14 @@ define(function(require, exports, module) {
                 layout.show(new Desk());
             });
         },
+        
+        goCalendar: function() {
+            require(['views/layout', 'views/calendar'], function(layout, View) {
+                layout.show(new View());
+            });
+        },
+        
+        
         
         goLogin: function() {
             if ( this._isLogin === true ) {
