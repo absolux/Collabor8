@@ -18,6 +18,7 @@ define(function(require, exports, module) {
                 return false;
             }
             
+            this._isLogin = false;
             if ( callback ) callback.apply(this, args); 
         },
         
@@ -26,7 +27,11 @@ define(function(require, exports, module) {
         },
         
         goLogin: function() {
-            console.log('login form');
+            if ( this._isLogin === true ) {
+                return;
+            }
+            
+            this._isLogin = true;
             require(['views/login'], function(Login) {
                 (new Login()).render();
             });
