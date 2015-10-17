@@ -6,7 +6,6 @@ define(function(require, exports, module) {
 	'use strict';
 	
 	var Backbone = require('backbone');
-	var bs = require('bootstrap'); 
 	
 	module.exports = Backbone.View.extend({
 		manage: true,
