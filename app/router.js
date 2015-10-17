@@ -12,6 +12,9 @@ define(function(require, exports, module) {
             '': 'goHome',
             'calendar': 'goCalendar',
             'tasks(/:project)': 'goTasks',
+            'projects/:id': 'goOverview',
+            'projects/:id/team': 'goTeam',
+            'account': 'goAccount',
         },
         
         execute: function(callback, args, name) {
@@ -36,8 +39,6 @@ define(function(require, exports, module) {
             });
         },
         
-        
-        
         goLogin: function() {
             if ( this._isLogin === true ) {
                 return;
@@ -56,6 +57,24 @@ define(function(require, exports, module) {
                 'views/tasks/my-tasks',
             ], function(layout, TasksView, MyTasksView) {
                 layout.show((id === null) ? new MyTasksView() : new TasksView());
+            });
+        },
+        
+        goOverview: function(id) {
+            require(['views/layout', 'views/projects/overview'], function(layout, View) {
+                layout.show(new View());
+            });
+        },
+        
+        goTeam: function(id) {
+            require(['views/layout', 'views/projects/team'], function(layout, View) {
+                layout.show(new View());
+            });
+        },
+        
+        goAccount: function() {
+            require(['views/layout', 'views/account'], function(layout, View) {
+                layout.show(new View());
             });
         },
     });
