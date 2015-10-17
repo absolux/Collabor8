@@ -48,3 +48,7 @@ body {
 #main {
     margin-left: 200px;
 }
+
+#main .page-header {
+    border-bottom-width: 1px;
+}
