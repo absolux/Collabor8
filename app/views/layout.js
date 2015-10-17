@@ -5,8 +5,6 @@
 define(function(require, exports, module) {
     'use strict';
     
-    require('bootstrap');
-    
     var Layout = require('backbone.layout');
     
     var View = Layout.extend({

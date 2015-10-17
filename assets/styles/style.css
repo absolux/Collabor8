@@ -42,5 +42,9 @@ body {
 }
 
 #left {
-    width: 0;
+    left: -200px;
+}
+
+#main {
+    margin-left: 200px;
 }
