@@ -5,11 +5,13 @@
 define(function(require, exports, module) {
 	'use strict';
 	
-	var Layout = require('backbone.layout');
+	var Layout = require('./layout');
 	
 	module.exports = Layout.extend({
-		className: 'container-fluid',
+		subtitle: 'Team',
 		
-		template: require('template!projects/team'),
+		_renderSubviews: function() {
+			
+		},
 	});
 });
