@@ -20,7 +20,10 @@ define(function(require, exports, module) {
         show: function(view) {
             var self = this;
             
-            require(['./header', './sidebar'], function(Header, Sidebar) {
+            require([
+                './common/header', 
+                './common/sidebar'
+            ], function(Header, Sidebar) {
                 // check if the header view is rendered
                 if (! self.getView('header') ) {
                     self.setView('header', new Header()).render();

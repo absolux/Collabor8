@@ -13,7 +13,7 @@ define(function(require, exports, module) {
         
         className: 'container-fluid',
         
-        template: require('template!header'),
+        template: require('template!common/header'),
         
         events: {
 			'click .btn-logout': 'onLogoutClicked',
