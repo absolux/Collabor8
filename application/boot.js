@@ -3,7 +3,7 @@
  */
 
 require.config({
-    baseUrl: "app",
+    baseUrl: "application",
     
     paths: {
         "toastr":               "../vendor/toastr/toastr",
@@ -12,13 +12,13 @@ require.config({
         "jquery":               "../vendor/jquery/dist/jquery",
         "backbone":             "../vendor/backbone/backbone",
         "backbone.layout":      "../vendor/layoutmanager/backbone.layoutmanager",
-        "bootstrap":            "../vendor/bootstrap/dist/js/bootstrap"
+        "bootstrap":            "../vendor/bootstrap/dist/js/bootstrap",
     },
     
     map: {
         '*': {
-            'lodash': 'underscore'
-        }
+            'lodash': 'underscore',
+        },
     },
     
     config: {
@@ -26,17 +26,18 @@ require.config({
             'locale': 'en',
             'root': "/collabor8/",
             'api': "http://localhost/collabor8/api/",
-            'header': "X-Auth-Token"
-        }
+            'header': "X-Auth-Token",
+        },
     },
     
     lodashLoader: {
-        root: "./templates/"
+        root: "./templates/",
     },
     
     shim: {
-        'bootstrap': ['jquery']
-    }
+        //'app': ['bootstrap'],
+        'bootstrap': ['jquery'],
+    },
 });
 
 
@@ -47,10 +48,10 @@ require(['jquery', 'app', 'router', 'lib/session'], function($, app, router, ses
     // JQuery global event handlers
     $(document).ajaxSend(function(event, jqXHR, options) {
         // prepend api url
-        options.url = app.api + options.url;
+        options.url = app.config.api + options.url;
         
         // set token header
-        jqXHR.setRequestHeader(app.header, session.get('user.token'));
+        jqXHR.setRequestHeader(app.config.header, session.get('user.token'));
     });
     
     $(document).ajaxError(function(event, jqXHR, options, thrownError) {
@@ -70,7 +71,7 @@ require(['jquery', 'app', 'router', 'lib/session'], function($, app, router, ses
     });
     
     $(document).ajaxSuccess(function(event, jqXHR, options) {
-        var token = jqXHR.getResponseHeader(app.header);
+        var token = jqXHR.getResponseHeader(app.config.header);
         
         if ( token ) {
             try {

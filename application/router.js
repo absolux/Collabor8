@@ -28,14 +28,14 @@ define(function(require, exports, module) {
         },
         
         goHome: function() {
-            require(['views/layout', 'views/desk'], function(layout, Desk) {
-                layout.show(new Desk());
+            require(['app', 'views/desk'], function(app, Desk) {
+                app.show(new Desk());
             });
         },
         
         goCalendar: function() {
-            require(['views/layout', 'views/calendar'], function(layout, View) {
-                layout.show(new View());
+            require(['app', 'views/calendar'], function(app, View) {
+                app.show(new View());
             });
         },
         
@@ -45,36 +45,36 @@ define(function(require, exports, module) {
             }
             
             this._isLogin = true;
-            require(['views/login'], function(Login) {
+            require(['views/common/login'], function(Login) {
                 (new Login()).render();
             });
         },
         
         goTasks: function(id) {
             require([
-                'views/layout', 
+                'app', 
                 'views/tasks/tasks',
                 'views/tasks/my-tasks',
-            ], function(layout, TasksView, MyTasksView) {
-                layout.show((id === null) ? new MyTasksView() : new TasksView());
+            ], function(app, TasksView, MyTasksView) {
+                app.show((id === null) ? new MyTasksView() : new TasksView());
             });
         },
         
         goOverview: function(id) {
-            require(['views/layout', 'views/projects/overview'], function(layout, View) {
-                layout.show(new View());
+            require(['app', 'views/projects/overview'], function(app, View) {
+                app.show(new View());
             });
         },
         
         goTeam: function(id) {
-            require(['views/layout', 'views/projects/team'], function(layout, View) {
-                layout.show(new View());
+            require(['app', 'views/projects/team'], function(app, View) {
+                app.show(new View());
             });
         },
         
         goAccount: function() {
-            require(['views/layout', 'views/account'], function(layout, View) {
-                layout.show(new View());
+            require(['app', 'views/account'], function(app, View) {
+                app.show(new View());
             });
         },
     });

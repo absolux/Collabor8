@@ -16,7 +16,7 @@ define(function(require, exports, module) {
 			'submit .login-form': "onLoginFormSubmitted",
 		},
 		
-		template: require('template!login'),
+		template: require('template!common/login'),
 		
 		onLoginFormSubmitted: function(e) {
 			e.preventDefault();
