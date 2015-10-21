@@ -35,7 +35,7 @@ require.config({
     },
     
     shim: {
-        //'app': ['bootstrap'],
+        'app': ['bootstrap'],
         'bootstrap': ['jquery'],
     },
 });

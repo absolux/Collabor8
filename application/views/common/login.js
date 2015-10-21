@@ -21,14 +21,18 @@ define(function(require, exports, module) {
 		onLoginFormSubmitted: function(e) {
 			e.preventDefault();
 			
+			var self = this;
 			var data = {
 				'email': this.$('#login-email-field').val().trim(),
 				'password': this.$('#login-pwd-field').val().trim(),
 			};
 			
 			require(['jquery', 'lib/ui/notifier'], function($, notifier) {
+				self.$(':submit').attr('disabled', true);
+				
 				$.post('authenticate', data)
 				 .fail(function() { notifier.show("Invalid credentials !", "Login Failure", 'error'); })
+				 .fail(function() { self.$(':submit').attr('disabled', false); })
 				 .done(function() { location.reload(); });
 			});
 		},
