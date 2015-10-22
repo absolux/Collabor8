@@ -42,7 +42,8 @@ require.config({
 
 
 // kick off the application
-require(['jquery', 'app', 'router', 'lib/session'], function($, app, router, session) {
+require(['jquery', 'app', 'router', 'lib/session', 'lib/ui/notifier'], 
+        function($, app, router, session, notifier) {
     'use strict';
     
     // JQuery global event handlers
@@ -61,7 +62,7 @@ require(['jquery', 'app', 'router', 'lib/session'], function($, app, router, ses
             }break;
             
             case 422: {
-                // Occures when invalid form submitted
+                notifier.show("Please, try again", "Error occured", "error");
             }break;
             
             default: {

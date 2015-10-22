@@ -12,6 +12,7 @@ define(function(require, exports, module) {
             '': 'goHome',
             'calendar': 'goCalendar',
             'tasks(/:project)': 'goTasks',
+            'projects': 'goProjects',
             'projects/:id': 'goOverview',
             'projects/:id/team': 'goTeam',
             'account': 'goAccount',
@@ -36,6 +37,12 @@ define(function(require, exports, module) {
         goCalendar: function() {
             require(['app', 'views/calendar'], function(app, View) {
                 app.show(new View());
+            });
+        },
+        
+        goProjects: function() {
+            require(['app', 'views/projects/list', 'models/project'], function(app, View, Project) {
+                app.show(new View({collection: new Project.Collection()}));
             });
         },
         
