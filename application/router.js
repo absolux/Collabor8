@@ -14,7 +14,7 @@ define(function(require, exports, module) {
             'tasks(/:project)': 'goTasks',
             'projects': 'goProjects',
             'projects/:id': 'goOverview',
-            'projects/:id/team': 'goTeam',
+            'projects/:id/config': 'goConfig',
             'account': 'goAccount',
         },
         
@@ -62,20 +62,39 @@ define(function(require, exports, module) {
                 'app', 
                 'views/tasks/tasks',
                 'views/tasks/my-tasks',
-            ], function(app, TasksView, MyTasksView) {
-                app.show((id === null) ? new MyTasksView() : new TasksView());
+                'models/project',
+            ], function(app, TasksView, MyTasksView, Project) {
+                if ( id === null ) {
+                    var col = new Project.Collection();
+                    
+                    app.show(new MyTasksView({collection: col}), {render: false});
+                }
+                else {
+                    var project = new Project.Model({'id': id});
+                
+                    app.show(new TasksView({model: project}), {render: true});
+                    project.fetch();
+                }
             });
         },
         
         goOverview: function(id) {
-            require(['app', 'views/projects/overview'], function(app, View) {
-                app.show(new View());
+            require(['app', 'views/projects/overview', 'models/project'], 
+                    function(app, View, Project) {
+                var project = new Project.Model({'id': id});
+                
+                app.show(new View({model: project}), {render: false});
+                project.fetch();
             });
         },
         
-        goTeam: function(id) {
-            require(['app', 'views/projects/team'], function(app, View) {
-                app.show(new View());
+        goConfig: function(id) {
+            require(['app', 'views/projects/settings', 'models/project'], 
+                    function(app, View, Project) {
+                var project = new Project.Model({'id': id});
+                
+                app.show(new View({model: project}), {render: false});
+                project.fetch();
             });
         },
         

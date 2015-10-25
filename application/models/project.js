@@ -7,14 +7,16 @@ define(function(require, exports, module) {
     
     var Backbone = require('backbone');
     
+    var baseUrl = 'projects';
+    
     var _Model = Backbone.Model.extend({
-        
+        urlRoot: baseUrl,
     });
     
     var _Collection = Backbone.Collection.extend({
         model: _Model,
         
-        url: 'projects',
+        url: baseUrl,
     });
     
     // module exports

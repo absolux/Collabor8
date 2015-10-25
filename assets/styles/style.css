@@ -55,3 +55,7 @@ body {
 .wait {
     opacity: .3 !important;
 }
+
+.noborder {
+    border: none !important;
+}
