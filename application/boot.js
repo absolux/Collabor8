@@ -6,6 +6,7 @@ require.config({
     baseUrl: "application",
     
     paths: {
+        "xeditable":            "../vendor/x-editable/dist/bootstrap3-editable/js/bootstrap-editable",
         "toastr":               "../vendor/toastr/toastr",
         "underscore":           "../vendor/underscore/underscore",
         "template":             "../vendor/lodash-template-loader/loader",
@@ -37,6 +38,7 @@ require.config({
     shim: {
         'app': ['bootstrap'],
         'bootstrap': ['jquery'],
+        'xeditable': ['bootstrap'],
     },
 });
 
