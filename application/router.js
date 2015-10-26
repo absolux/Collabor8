@@ -93,8 +93,9 @@ define(function(require, exports, module) {
                     function(app, View, Project) {
                 var project = new Project.Model({'id': id});
                 
-                app.show(new View({model: project}), {render: false});
-                project.fetch();
+                project.fetch().done(function() {
+                    app.show(new View({model: project}));
+                });
             });
         },
         

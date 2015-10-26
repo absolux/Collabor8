@@ -5,22 +5,20 @@
 	<div class="box-content nopadding">
 		<form class="create-form form-horizontal form-bordered">
 			<div class="form-group">
-				<label for="project-name-field" class="control-label col-sm-4">Name</label>
+				<label class="control-label col-sm-4">Name</label>
 				<div class="col-sm-8">
-					<!--<input type="text" class="form-control" value="<%= _.escape(name) %>" 
-						placeholder="Project name" id="project-name-field" name="name" required="true" />-->
 					<p class="form-control-static">
-						<a href="javascript:;">Project name</a>
+						<a href="javascript:;" 
+							data-name="name"><%= _.escape(name) %></a>
 					</p>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="project-desc-field" class="control-label col-sm-4">Description</label>
+				<label class="control-label col-sm-4">Description</label>
 				<div class="col-sm-8">
-					<!--<textarea id="project-desc-field" placeholder="Enter a short description for this project"
-						class="form-control" name="desc" rows="3"></textarea>-->
 					<p class="form-control-static">
-						<a href="javascript:;">Empty</a>
+						<a href="javascript:;" 
+							data-name="desc" data-type="textarea"><%= _.escape(desc) %></a>
 					</p>
 				</div>
 			</div>
