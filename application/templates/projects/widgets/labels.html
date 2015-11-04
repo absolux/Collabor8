@@ -4,16 +4,20 @@
 	</div>
 	<div class="box-content nopadding">
 		<ul class="list-group" style="margin-bottom: 0;">
+			<% _.each(labels, function(tag) { %>
 			<li class="list-group-item">
 				<i class="fa fa-tag"></i>&nbsp;
-				<span>Cras justo odio</span>
-				<a href="#" class="pull-right" title="Delete this label">
+				<span><%= _.escape(tag.name) %></span>
+				<a href="javascript:;" data-model="<%= tag.id %>" 
+					class="pull-right label-delete-btn" title="Delete this label">
 					<i class="fa fa-times"></i>	
 				</a>
 			</li>
+			<% }) %>
 			<li class="list-group-item nopadding noborder">
-				<form>
-					<input type="text" class="form-control input-lg"  placeholder="New label" />
+				<form class="create-label-form">
+					<input type="text" id="label-name-field"
+						class="form-control input-lg"  placeholder="New label" />
 				</form>
 			</li>
 		</ul>
