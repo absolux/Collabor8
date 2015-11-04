@@ -1,5 +1,5 @@
-/*
- *
+/**
+ * 
  */
 
 @import url('plugins.css');
@@ -9,30 +9,53 @@
 
 /* custom styles --------------------------------*/
 
+body {
+    background-color: #fff;
+}
+
+#navigation .container-fluid {
+    display: none;
+}
+
 #navigation #brand {
     background-image: none; 
 }
 
-#left a.add-project-btn {
+#left {
+    left: -200px;
+}
+
+#left .add-project-btn {
+    font-size: 17px;
+    padding-right: 10px;
     line-height: 24px;
-    margin-right: 10px;
-    font-size: 16px; 
 }
 
-#left .projects-empty-message {
-    padding-left: 27px;
+#main {
+    margin-left: 200px;
 }
 
-.page-header {
-    border-bottom: 1px solid #ddd;
+#main .page-header {
+    border-bottom-width: 1px;
 }
 
-.table.task-list tfoot > tr:hover > td {
-    background: #fff;
+.box.project .box-title h3 i {
+    color: orange;
+    margin: 0;
 }
-.table.task-list > tbody > tr:hover {
-    cursor: pointer;
+
+.box.project .box-title .actions .btn:hover {
+    background-color: #2c5e7b;
 }
-.table.task-list > tbody > tr:first-child > td {
-    border-top: none;
+
+.box.project .box-content {
+    min-height: 150px;
+}
+
+.wait {
+    opacity: .3 !important;
+}
+
+.noborder {
+    border: none !important;
 }

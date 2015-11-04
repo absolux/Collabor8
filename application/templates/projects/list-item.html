@@ -1,0 +1,19 @@
+<div class="box project box-bordered col-md-3 <%= (isNew ? 'wait' : '') %>">
+	<div class="box-title">
+		<h3>
+			<!--<% if (isBookmarked) { %><i class="fa fa-star"></i><% } %>-->
+			<a href="#/projects/<%= _.isUndefined(p.id) ? 0 : p.id %>"><%= _.escape(p.name) %></a>
+		</h3>
+		<!--<div class="actions">
+			<div class="btn-group">
+				<a href="javascript:;" class="btn" data-toggle="dropdown"><i class="fa fa-cog"></i></a>
+				<ul class="dropdown-menu pull-right">
+					<li>
+						<a href="javascript:;">Bookmark this project</a>
+					</li>
+				</ul>
+			</div>
+		</div>-->
+	</div>
+	<div class="box-content"><%= _.isEmpty(p.desc) ? "No available description" : _.escape(p.desc) %></div>
+</div>
