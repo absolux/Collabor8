@@ -6,7 +6,12 @@
 		<div class="well text-center" style="margin-bottom: 0;">
 			<form class="form-inline">
 				<div class="form-group">
-					<select class="form-control" style="width: 300px;"></select>
+					<select class="form-control" style="width: 300px;">
+						<option>Choose</option>
+						<% _.each(users, function(user) { %>
+						<option value="<%= user.escape('email') %>"><%= user.escape('name') %></option>
+						<% }) %>
+					</select>
 				</div>
 				<button type="submit" class="btn btn-lg btn-satblue">Invite</button>
 			</form>
@@ -15,20 +20,23 @@
 		
 		
 		<div class="row" style="padding: 20px;">
+			<% _.each(team, function(user) { %>
 			<div class="col-xs-4 col-md-3">
 				<div href="#" class="thumbnail">
 					<div class="btn-group" style="position: absolute; right: 20px;">
-						<button class="btn btn-small btn-lightgrey" title="Make as admin">
+						<!--<button class="btn btn-small btn-lightgrey toggle-btn" title="Make as admin">
 							<i class="fa fa-magic"></i>
-						</button>
-						<button class="btn btn-small btn-lightred" title="Revoke access">
+						</button>-->
+						<button data-model="<%= user.id %>" 
+							class="btn btn-small btn-lightred revoke-btn" title="Revoke access">
 							<i class="fa fa-times"></i>
 						</button>
 					</div>
-					<img src="assets/images/demo/photo3.png" style="width: 100%; display: block;">
+					<img src="assets/images/demo/photo<%= user.id %>.png" style="width: 100%; display: block;"
+						title="<%= _.escape(user.name) %>" />
 				</div>
 			</div>
-			
+			<% }) %>
 		</div>
 	</div>
 </div>

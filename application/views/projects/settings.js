@@ -20,9 +20,19 @@ define(function(require, exports, module) {
 			require([
 				'./widgets/info',
 				'./widgets/team',
-			], function(InfoView, TeamView) {
-				self.insertView('.row', new InfoView({model: self.model})).render();
-				self.insertView('.row', new TeamView({model: self.model})).render();
+				'models/user',
+				'models/team',
+			], function(InfoView, TeamView, User, Team) {
+				var users = new User.Collection();
+				var team = new Team.Collection(self.model.get('team'), {project: self.model});
+				var view1 = new InfoView({model: self.model});
+				var view2 = new TeamView({model: self.model, collection: team, users: users});
+				
+				self.insertView('.row', view1).render();
+				
+				users.fetch().done(function() {
+					self.insertView('.row', view2).render();
+				});
 			});
 		},
 		
