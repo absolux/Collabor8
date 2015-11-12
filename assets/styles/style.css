@@ -37,6 +37,7 @@ body {
 
 #main .page-header {
     border-bottom-width: 1px;
+    border-color: #ddd;
 }
 
 .box.project .box-title h3 i {
@@ -58,4 +59,67 @@ body {
 
 .noborder {
     border: none !important;
+}
+
+.table-tasks tr.select > td {
+    background-color: rgba(217, 237, 247, 0.6);
+}
+
+.table-tasks > tbody > tr > td,
+.table-tasks > tfoot > tr > td {
+    border-top: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-tasks i.fa-caret-right {
+    display: none;
+}
+
+.table-tasks tr.select i.fa-caret-right {
+    display: inline;
+}
+
+.table-tasks td.table-assignee {
+    padding: 6px;
+    width: 40px;
+}
+
+.table-tasks td.table-assignee img {
+    border: 1px solid #888;
+}
+
+.table-tasks > tfoot > tr > td {
+    padding: 4px 0 2px;
+}
+
+.table-tasks .done span.task {
+    text-decoration: line-through;
+}
+
+.task-detail .lead {
+    margin-bottom: 10px;
+}
+
+.task-detail .lead .editable-input,
+.task-detail .lead .form-group,
+.task-detail .lead .form-control,
+.task-detail .lead .editable-container {
+    width: 100%;
+}
+
+.task-detail .lead .form-control {
+    height: 31px;
+    font-size: 21px;
+    border: none;
+    padding: 0;
+    margin-top: -8px;
+    border-bottom: 1px solid crimson;
+}
+
+.task-detail .lead .editable-clear-x {
+    top: 30%;
+}
+
+.task-detail .row.field {
+    line-height: 40px;
 }
