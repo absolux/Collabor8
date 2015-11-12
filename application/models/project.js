@@ -54,7 +54,7 @@ define(function(require, exports, module) {
      */
     exports.current = function(id) {
         if ( id ) {
-            _current = new _Model({});
+            _current = new _Model({'id': id});
         }
         
         return _current;
