@@ -14,23 +14,18 @@ define(function(require, exports, module) {
 	var _Collection = Backbone.Collection.extend({
 		model: _Model,
 		
-		project: null,
-		
 		url: function() {
-			return 'projects/' + this.project.id + '/labels';
+			return this.project.url() + '/labels';
 		},
 		
 		initialize: function(models, options) {
-			this.project = options.project ? options.project : null;
+			if ( options.project ) {
+				this.project = options.project;
+			}
 		},
 		
 		destroy: function(id, options) {
-			var model = this.get(id);
-			
-			if ( model ) {
-				model.urlRoot = this.url();
-				model.destroy(options);
-			}
+			return this.get(id).destroy(options);
 		},
 	});
 	

@@ -12,24 +12,21 @@ define(function(require, exports, module) {
 		model: User.Model,
 		
 		initialize: function(models, options) {
-			this.project = options.project ? options.project : null;
+			if ( options.project ) {
+				this.project = options.project;
+			}
 		},
 		
 		url: function() {
-			return 'projects/' + this.project.id + '/team';
+			return this.project.url() + '/team';
 		},
 		
 		attach: function(email, options) {
-			this.create({'email': email}, options);
+			return this.create({'email': email}, options);
 		},
 		
 		detach: function(id, options) {
-			var model = this.get(id);
-			
-			if ( model ) {
-				model.urlRoot = this.url();
-				model.destroy(options);
-			}
+			return this.get(id).destroy(options);
 		},
 	});
 });
