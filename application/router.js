@@ -70,9 +70,9 @@ define(function(require, exports, module) {
                     app.show(new MyTasksView({collection: col}), {render: false});
                 }
                 else {
-                    var project = new Project.Model({'id': id});
+                    var project = Project.current(id);
                 
-                    app.show(new TasksView({model: project}), {render: true});
+                    app.show(new TasksView({model: project}), {render: false});
                     project.fetch();
                 }
             });
@@ -81,7 +81,7 @@ define(function(require, exports, module) {
         goOverview: function(id) {
             require(['app', 'views/projects/overview', 'models/project'], 
                     function(app, View, Project) {
-                var project = new Project.Model({'id': id});
+                var project = Project.current(id);
                 
                 app.show(new View({model: project}), {render: false});
                 project.fetch();
@@ -91,7 +91,7 @@ define(function(require, exports, module) {
         goConfig: function(id) {
             require(['app', 'views/projects/settings', 'models/project'], 
                     function(app, View, Project) {
-                var project = new Project.Model({'id': id});
+                var project = Project.current(id);
                 
                 project.fetch().done(function() {
                     app.show(new View({model: project}));
