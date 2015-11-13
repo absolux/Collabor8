@@ -27,7 +27,7 @@ define(function(require, exports, module) {
 			data = [];
 		}
 		
-		var rel = new options.related(data, opts);
+		var rel = _setRelation(model, options.key, new options.related(data, opts));
 		
 		if ( options.otherKey ) {
 			rel[options.otherKey] = model;
@@ -66,19 +66,13 @@ define(function(require, exports, module) {
 	 * define and return the related model
 	 */
 	exports.belongsTo = function(options) {
-		return _hasRelation(this, options.key) ?
-			_getRelation(this, options.key) :
-			_createRelation('Model', this, options); 
+		return _getRelation(this, options.key) || _createRelation('Model', this, options); 
 	};
 	
 	/**
 	 * define and return the related collection
 	 */
 	exports.hasMany = function(options) {
-		if ( _hasRelation(this, options.key) ) {
-			return _getRelation(this, options.key);
-		}
-		
-		return _createRelation('Collection', this, options); 
+		return _getRelation(this, options.key) || _createRelation('Collection', this, options); 
 	};
 });
