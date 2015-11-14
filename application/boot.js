@@ -14,6 +14,7 @@ require.config({
         "backbone":             "../vendor/backbone/backbone",
         "backbone.layout":      "../vendor/layoutmanager/backbone.layoutmanager",
         "bootstrap":            "../vendor/bootstrap/dist/js/bootstrap",
+        "moment":               "../vendor/moment/moment",
     },
     
     map: {
