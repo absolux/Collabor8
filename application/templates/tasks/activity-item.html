@@ -1,0 +1,47 @@
+<%
+	var comment = "updated this task",
+		note = _.escape(obj.note);
+	
+	if (obj.type === 'create') {
+		comment = "created this task";
+	} 
+	else if ( obj.type === 'comment' ) {
+		comment = "wrote a comment: <br />" + note;
+	} 
+	else if ( obj.type === 'name' ) {
+		comment = "renamed this task to <strong>" + note + "</strong>";
+	} 
+	else if ( obj.type === 'done' ) {
+		comment = (parseInt(note) ? 'completed' : 'reopened') + " this task";
+	} 
+	else if ( obj.type === 'flag' ) {
+		comment = (parseInt(note) ? 'marked this task as important' : 'removed the important flag') + "";
+	} 
+	else if ( obj.type === 'due' ) {
+		comment = "set the due date to <strong>" + note + "</strong>";
+		// moment(note).calendar();
+		
+		if ( _.isEmpty(note) ) {
+			comment = "unset the due date";
+		}
+	} 
+	else if ( obj.type === 'user_id' ) {
+		comment = "assigned this task to another user";
+		
+		if ( _.isEmpty(note) ) {
+			comment = "removed the assigned user !";
+		}
+	}
+	else if ( obj.type === 'label_id' ) {
+		comment = (_.isEmpty(note) ? 'removed' : 'added') + " the label";
+	}
+%>
+<div class="media-left">
+    <img src="assets/images/demo/user-<%= obj.user_id %>.jpg" 
+		 width="24" height="24" class="img-circle" />
+</div>
+<div class="media-body">
+	<strong><%= _.escape(obj.user.name) %></strong>
+	<span><%= comment %></span>
+	<small class="text-muted pull-right">time</small>
+</div>

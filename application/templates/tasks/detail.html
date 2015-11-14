@@ -1,5 +1,5 @@
 <section class="col-md-5 nopadding task-detail">
-	<div style="padding: 10px; border-left: 1px solid #ddd;">
+        <div style="padding: 10px; border-left: 1px solid #ddd;">
 		<p class="lead">
 			<a href="javascript:;" class="editable"
                  data-name="name" data-mode="inline"><%= _.escape(obj.name) %></a>
@@ -27,51 +27,16 @@
             </div>
 		</div>
 		<hr />
-		<section class="activity-stream">
+        <section class="activity-stream">
+            <div class="list"></div>
             <div class="media">
-    
-                <div class="media-left">
-                    
-                    <img src="assets/images/demo/user-1.jpg" width="24" height="24" class="img-circle">
-                    
-                </div>
                 <div class="media-body">
-                    <strong class="text-muted">You</strong>
-                    
-                    <span>created this task</span>
-                    <small class="text-muted pull-right">
-                        16 hours ago
-                    </small>
-                </div>
-            </div>
-            <div class="media">
-                
-                <div class="media-left">
-                    
-                    <img src="assets/images/demo/user-1.jpg" width="24" height="24" class="img-circle">
-                    
-                </div>
-                <div class="media-body">
-                    <strong class="text-muted">You</strong>
-                    
-                    <span> wrote a comment :</span><br>
-                    
-                    <span>j lsdkjbqsjdfl bffk hqdkjhqbsdfkj kfgkbsdfjhbqskdjbSFH KSDFH GQKGF QKSJGF QSKJG js jhsdfkjhbsdkjfhbs kdjs</span>
-                    <small class="text-muted pull-right">12 hours ago</small>
-                </div>
-            </div>
-            <div class="media comment">
-                <div class="media-left">
-                    <!--<i class="fa fa-comment" style="padding: 5px 0;"></i>-->
-                    <img src="assets/images/demo/user-9.jpg" class="img-circle" width="24" height="24" />
-                </div>
-                <div class="media-body">
-                    <form class="activity-comment-form">
+                    <form class="comment">
                         <p><textarea name="comment" class="form-control" placeholder="Write a comment" rows="1"></textarea></p>
                         <button type="submit" class="btn btn-sm btn-primary post-btn pull-right">Post</button>
                     </form>
                 </div>
             </div>
         </section>
-	</div>
+        </div>
 </section>

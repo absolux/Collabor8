@@ -129,19 +129,29 @@ define(function(require, exports, module) {
 		
 		template: require('template!tasks/detail'),
 		
+		events: {
+			'submit form.comment': "createComment",
+		},
+		
 		initialize: function(options) {
-			var activity = this.model.activity();
-			
 			this.listenTo(this.model, 'sync', this.render);
-			this.listenTo(activity, 'update', this.showActivity);
-			//activity.fetch();
+			this.listenTo(this.model.activity(), 'reset', this.showActivity);
+			this.listenTo(this.model.activity(), 'add', this.addActivity);
+		},
+		
+		beforeRender: function() {
+			this.model.activity().fetch({reset: true});
 		},
 		
 		afterRender: function() {
 			var self = this;
 			var project = this.model.collection.project;
 			
-			// apply 
+			this.$('form.comment textarea').on('focus', function() {
+				this.rows = 4;
+            });
+			
+			// setup editable fields
 			require(['jquery', 'xeditable'], function($) {
 				self.$('.editable').each(function(i, el) {
 					var $el = $(el);
@@ -172,15 +182,40 @@ define(function(require, exports, module) {
 			});
 		},
 		
-		showActivity: function() {
+		showActivity: function(collection) {
+			var self = this;
 			
+			collection.each(function(item) {
+				self.addActivity(item);
+			});
+		},
+		
+		addActivity: function(item) {
+			var view = new ActivityView({model: item});
+				
+			this.insertView('.activity-stream .list', view).render();
+		},
+        
+        createComment: function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			
+			var $textarea = this.$('form.comment textarea');
+			var comment = $textarea.val().trim();
+			
+			if ( comment ) {
+				this.model.activity().create({'note': comment}, {wait: true});
+				$textarea.val('');
+			}
 		},
 	});
 	
 	var ActivityView = Backbone.View.extend({
 		manage: true,
 		
+		className: 'media',
 		
+		template: require('template!tasks/activity-item'),
 	});
 	
 	module.exports = View;

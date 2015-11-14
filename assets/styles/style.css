@@ -123,3 +123,7 @@ body {
 .task-detail .row.field {
     line-height: 40px;
 }
+
+.activity-stream strong {
+    color: #777;
+}
