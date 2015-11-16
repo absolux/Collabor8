@@ -18,11 +18,10 @@
 		comment = (parseInt(note) ? 'marked this task as important' : 'removed the important flag') + "";
 	} 
 	else if ( obj.type === 'due' ) {
-		comment = "set the due date to <strong>" + note + "</strong>";
-		// moment(note).calendar();
+		comment = "set the due date to <strong>" + moment(note).calendar() + "</strong>";
 		
 		if ( _.isEmpty(note) ) {
-			comment = "unset the due date";
+			comment = "unsetted the due date";
 		}
 	} 
 	else if ( obj.type === 'user_id' ) {
@@ -43,5 +42,5 @@
 <div class="media-body">
 	<strong><%= _.escape(obj.user.name) %></strong>
 	<span><%= comment %></span>
-	<small class="text-muted pull-right">time</small>
+	<small class="text-muted pull-right"><%= moment(created_at).fromNow() %></small>
 </div>

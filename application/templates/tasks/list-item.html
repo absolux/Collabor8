@@ -14,7 +14,7 @@
 </td>
 <td class="table-icon">
 	<% if ( due ) { %>
-	<i class="fa fa-calendar" rel="tooltip" title="<%= due %>"></i>
+	<i class="fa fa-calendar" rel="tooltip" title="Due <%= moment(due).calendar() %>"></i>
 	<% } %>
 </td>
 <td class="table-assignee">

@@ -8,6 +8,7 @@ define(function(require, exports, module) {
 	var _ = require('underscore');
 	var Backbone = require('backbone');
 	var Layout = require('backbone.layout');
+	var helpers = require('lib/ui/helpers');
 	
 	/**
 	 * List view
@@ -91,6 +92,12 @@ define(function(require, exports, module) {
 		afterRender: function() {
 			this.$('[rel=tooltip]').tooltip({
 				container: 'body',
+			});
+		},
+		
+		serialize: function() {
+			return _.extend(this.model.toJSON(), {
+				'moment': helpers.moment,
 			});
 		},
 		
@@ -182,6 +189,12 @@ define(function(require, exports, module) {
 			});
 		},
 		
+		serialize: function() {
+			return _.extend(this.model.toJSON(), {
+				'moment': helpers.moment,
+			});
+		},
+		
 		showActivity: function(collection) {
 			var self = this;
 			
@@ -216,6 +229,12 @@ define(function(require, exports, module) {
 		className: 'media',
 		
 		template: require('template!tasks/activity-item'),
+		
+		serialize: function() {
+			return _.extend(this.model.toJSON(), {
+				'moment': helpers.moment,
+			});
+		},
 	});
 	
 	module.exports = View;
