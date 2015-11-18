@@ -1,42 +1,40 @@
-<section class="col-md-5 nopadding task-detail">
-        <div style="padding: 10px; border-left: 1px solid #ddd;">
-		<p class="lead">
-			<a href="javascript:;" class="editable"
-                 data-name="name" data-mode="inline"><%= _.escape(obj.name) %></a>
-		</p>
-		<div class="row field">
-			<div class="col-md-4">Assignee</div>
-			<div class="col-md-8">
-                <a href="javascript:;" class="editable" 
-                    data-name="user_id" data-type="select" data-prepend="Not set"
-                    data-sourceError="" data-value="<%= user_id || '' %>"></a>
-            </div>
-		</div>
-		<div class="row field">
-			<div class="col-md-4">Label</div>
-			<div class="col-md-8">
-                <a href="javascript:;" class="editable" data-sourceError="" data-prepend="Not set"
-                    data-name="label_id" data-type="select" data-value="<%= label_id || '' %>"></a>
-            </div>
-		</div>
-		<div class="row field">
-			<div class="col-md-4">Due date</div>
-			<div class="col-md-8">
-                <a href="javascript:;" class="editable" data-name="due" 
-                    data-placeholder="YYYY-MM-DD" data-emptytext="Not set"><%= due %></a>
-            </div>
-		</div>
-		<hr />
-        <section class="activity-stream">
-            <div class="list"></div>
-            <div class="media">
-                <div class="media-body">
-                    <form class="comment">
-                        <p><textarea name="comment" class="form-control" placeholder="Write a comment" rows="1"></textarea></p>
-                        <button type="submit" class="btn btn-sm btn-primary post-btn pull-right">Post</button>
-                    </form>
-                </div>
-            </div>
-        </section>
+<section class="col-md-5 task-detail" style="padding: 10px; border-left: 1px solid #ddd;">
+    <p class="lead">
+        <a href="javascript:;" class="editable"
+                data-name="name" data-mode="inline"><%= _.escape(obj.name) %></a>
+    </p>
+    <div class="row field">
+        <div class="col-md-4">Assignee</div>
+        <div class="col-md-8">
+            <a href="javascript:;" class="editable" 
+                data-name="user_id" data-type="select" data-prepend="Not set"
+                data-sourceError="" data-value="<%= user_id || '' %>"></a>
         </div>
+    </div>
+    <div class="row field">
+        <div class="col-md-4">Label</div>
+        <div class="col-md-8">
+            <a href="javascript:;" class="editable" data-sourceError="" data-prepend="Not set"
+                data-name="label_id" data-type="select" data-value="<%= label_id || '' %>"></a>
+        </div>
+    </div>
+    <div class="row field">
+        <div class="col-md-4">Due date</div>
+        <div class="col-md-8">
+            <a href="javascript:;" class="editable" data-name="due" 
+                data-placeholder="YYYY-MM-DD" data-emptytext="Not set"><%= due %></a>
+        </div>
+    </div>
+    <hr />
+    <section class="activity-stream">
+        <div class="list"></div>
+        <div class="media">
+            <div class="media-body">
+                <form class="comment">
+                    <p><textarea name="comment" class="form-control" placeholder="Write a comment" rows="1"></textarea></p>
+                    <button type="submit" class="btn btn-sm btn-primary post-btn pull-right">Post</button>
+                </form>
+            </div>
+        </div>
+    </section>
 </section>

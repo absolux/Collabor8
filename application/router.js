@@ -63,15 +63,21 @@ define(function(require, exports, module) {
                 'views/tasks/tasks',
                 'views/tasks/my-tasks',
                 'models/project',
-            ], function(app, TasksView, MyTasksView, Project) {
+                'models/task',
+            ], function(app, TasksView, MyTasksView, Project, Task) {
                 if ( id === null ) {
-                    var col = new Project.Collection();
+                    var projects = new Project.Collection();
                     
-                    app.show(new MyTasksView({collection: col}), {render: false});
+                    projects.fetch().done(function() {
+                        var tasks = new Backbone.Collection();
+                        
+                        app.show(new MyTasksView({collection: projects, 'tasks': tasks}));
+                        tasks.fetch({url: "tasks/mine", reset: true});
+                    });
                 }
                 else {
                     var project = Project.current(id);
-                
+                    
                     app.show(new TasksView({model: project}), {render: false});
                     project.fetch();
                 }
