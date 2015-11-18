@@ -66,13 +66,9 @@ define(function(require, exports, module) {
 		},
 		
 		_renderSubviews: function() {
-			var self = this;
-			
-			require(['views/tasks/list'], function(View) {
-				var view = new ListView({collection: self.model.tasks()});
+			var view = new ListView({collection: this.model.tasks()});
 				
-				self.setView('.row', view).render();
-			});
+			this.setView('.row', view).render();
 		},
 	});
 });
