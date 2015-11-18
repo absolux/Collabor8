@@ -8,6 +8,7 @@ define(function(require, exports, module) {
 	var _ = require('underscore');
 	var Common = require('./common');
 	var Layout = require('backbone.layout');
+	var session = require('lib/session');
 	
 	/**
 	 * ListView
@@ -36,12 +37,14 @@ define(function(require, exports, module) {
 			var taskName = this.$('.create-form input').val().trim();
 			
 			if ( taskName ) {
-				this.collection.create({'name': taskName});
+				var assignee = session.get('user.id');
+				
+				this.collection.create({'name': taskName, 'user_id': assignee});
 				this.$('.create-form').trigger('reset');
 			}
 		},
 		
-		addNewTask: function(task) {
+		addNewTask: function(task) {console.log(task)
 			this.insertView('tbody', new Common.ItemView({model: task})).render();
 		},
 	});

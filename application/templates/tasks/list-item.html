@@ -20,6 +20,6 @@
 <td class="table-assignee">
 	<% if ( user_id ) { %>
 	<img src="assets/images/demo/user-<%= user_id %>.jpg" class="img-circle" width="25"
-		rel="tooltip" title="<%= _.escape(assignee.name) %>" />
+		rel="tooltip" title="<%= obj.assignee ? _.escape(assignee.name) : '' %>" />
 	<% } %>
 </td>
