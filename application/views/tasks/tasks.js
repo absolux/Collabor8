@@ -48,6 +48,7 @@ define(function(require, exports, module) {
 		showDetail: function(task) {
 			if ( this.detail ) {
 				this.detail.remove();
+				this.$('.select').removeClass('select');
 			}
 			
 			if ( task ) {

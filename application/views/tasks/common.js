@@ -52,14 +52,12 @@ define(function(require, exports, module) {
 			var className = 'select';
 			
 			if ( this.$el.hasClass(className) ) {
-				this.$el.removeClass(className);
 				this.model.collection.trigger('select:task', null);
 				return;
 			}
 			
-			this.$el.siblings().removeClass(className);
-			this.$el.addClass(className);
 			this.model.collection.trigger('select:task', this.model);
+			this.$el.addClass(className);
 		},
 		
 		onStatusChanged: function(e) {

@@ -44,7 +44,7 @@ define(function(require, exports, module) {
 			}
 		},
 		
-		addNewTask: function(task) {console.log(task)
+		addNewTask: function(task) {
 			this.insertView('tbody', new Common.ItemView({model: task})).render();
 		},
 	});
@@ -78,6 +78,7 @@ define(function(require, exports, module) {
 		showDetail: function(task) {
 			if ( this.detail ) {
 				this.detail.remove();
+				this.$('.select').removeClass('select');
 			}
 			
 			if ( task ) {
