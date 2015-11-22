@@ -15,6 +15,7 @@ require.config({
         "backbone.layout":      "../vendor/layoutmanager/backbone.layoutmanager",
         "bootstrap":            "../vendor/bootstrap/dist/js/bootstrap",
         "moment":               "../vendor/moment/moment",
+        "fullcalendar":         "../vendor/fullcalendar/dist/fullcalendar",
     },
     
     map: {
@@ -40,6 +41,7 @@ require.config({
         'app': ['bootstrap'],
         'bootstrap': ['jquery'],
         'xeditable': ['bootstrap'],
+        'fullcalendar': ['jquery', 'moment'],
     },
 });
 

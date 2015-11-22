@@ -1,6 +1,7 @@
 {
     "name": "Collabor8",
     "dependencies": {
+        "fullcalendar": "2.4.*",
         "moment": "2.10.*",
         "x-editable": "1.5.*",
         "toastr": "2.1.*",
