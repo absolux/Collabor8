@@ -7,63 +7,12 @@ define(function(require, exports, module) {
 	
 	var _ = require('underscore');
 	var Backbone = require('backbone');
-	var Layout = require('backbone.layout');
-	var helpers = require('lib/ui/helpers');
+	var Helpers = require('lib/ui/helpers');
 	
 	/**
-	 * List view
+	 * Task ItemView
 	 */
-	var View = Layout.extend({
-		className: 'col-md-12',
-		
-		template: require('template!tasks/list'),
-		
-		events: {
-			"submit .create-form": "onFormSubmitted",
-		},
-		
-		initialize: function(options) {
-			this.listenTo(this.collection, 'add', this.addNewTask);
-			this.listenTo(this.collection, 'select:task', this.showDetail);
-		},
-		
-		afterRender: function() {
-			this.collection.fetch();
-		},
-		
-		onFormSubmitted: function(e) {
-			e.preventDefault();
-			e.stopPropagation();
-			
-			var task = this.$('.input-sm').val().trim();
-			
-			if ( task ) {
-				this.collection.create({'name': task});
-				this.$('.create-form').trigger('reset');
-			}
-		},
-		
-		addNewTask: function(task) {
-			this.insertView('tbody', new ItemView({model: task})).render();
-		},
-		
-		showDetail: function(task) {
-			if ( this.detail ) {
-				this.detail.remove();
-			}
-			
-			if ( task ) {
-				var view = this.detail = new DetailView({model: task});
-				
-				this.insertView(view).render();
-			}
-		},
-	});
-	
-	/**
-	 * Item view
-	 */
-	var ItemView = Backbone.View.extend({
+	exports.ItemView = Backbone.View.extend({
 		manage: true,
 		
 		tagName: 'tr',
@@ -96,23 +45,19 @@ define(function(require, exports, module) {
 		},
 		
 		serialize: function() {
-			return _.extend(this.model.toJSON(), {
-				'moment': helpers.moment,
-			});
+			return _.extend(this.model.toJSON(), Helpers);
 		},
 		
 		selectTask: function() {
 			var className = 'select';
 			
 			if ( this.$el.hasClass(className) ) {
-				this.$el.removeClass(className);
-				this.model.collection.trigger('select:task');
+				this.model.collection.trigger('select:task', null);
 				return;
 			}
 			
-			this.$el.siblings().removeClass(className);
-			this.$el.addClass(className);
 			this.model.collection.trigger('select:task', this.model);
+			this.$el.addClass(className);
 		},
 		
 		onStatusChanged: function(e) {
@@ -127,9 +72,9 @@ define(function(require, exports, module) {
 	});
 	
 	/**
-	 * Detail view
+	 * Task DetailView
 	 */
-	var DetailView = Backbone.View.extend({
+	exports.DetailView = Backbone.View.extend({
 		manage: true,
 		
 		el: false,
@@ -190,9 +135,7 @@ define(function(require, exports, module) {
 		},
 		
 		serialize: function() {
-			return _.extend(this.model.toJSON(), {
-				'moment': helpers.moment,
-			});
+			return _.extend(this.model.toJSON(), Helpers);
 		},
 		
 		showActivity: function(collection) {
@@ -223,6 +166,9 @@ define(function(require, exports, module) {
 		},
 	});
 	
+	/**
+	 * Task ActivityView
+	 */
 	var ActivityView = Backbone.View.extend({
 		manage: true,
 		
@@ -231,11 +177,9 @@ define(function(require, exports, module) {
 		template: require('template!tasks/activity-item'),
 		
 		serialize: function() {
-			return _.extend(this.model.toJSON(), {
-				'moment': helpers.moment,
-			});
+			return _.extend(this.model.toJSON(), Helpers);
 		},
 	});
 	
-	module.exports = View;
+	exports.ActivityView = ActivityView;
 });

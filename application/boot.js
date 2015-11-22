@@ -83,6 +83,7 @@ require(['jquery', 'app', 'router', 'lib/session', 'lib/ui/notifier'],
                     data = JSON.parse(atob(payload));
                 
                 session.set('user.token', token);
+                session.set('user.id', data.sub);
                 session.set('user.name', data.name);
                 session.set('user.email', data.email);
             } catch (err) {
