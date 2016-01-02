@@ -8000,7 +8000,7 @@ body.error .wrapper .buttons {
   display: inline-block;
 }
 .fc .fc-toolbar .fc-center:first-child {
-  *zoom: 1;
+  zoom: 1;
 }
 .fc .fc-toolbar .fc-center:first-child:after {
   content: "";
@@ -8009,9 +8009,9 @@ body.error .wrapper .buttons {
 }
 
 .fc-event {
-  border: 0;
-  background-color: #368ee0;
-  border-radius: 0;
+  *border: 0;
+  *background-color: #368ee0;
+  *border-radius: 0;
 }
 
 .flot {

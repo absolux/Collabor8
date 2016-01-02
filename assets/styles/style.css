@@ -127,3 +127,11 @@ body {
 .activity-stream strong {
     color: #777;
 }
+
+.fc-event {
+  color: #fff !important;
+}
+
+.fc .fc-toolbar .fc-state-active {
+    background: #2c5e7b;
+}
