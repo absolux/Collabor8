@@ -2,10 +2,13 @@
  * 
  */
 
+@import url('../../vendor/bootstrap/dist/css/bootstrap.min.css');
+@import url('../../vendor/fontawesome/css/font-awesome.min.css');
+
 @import url('plugins.css');
 
-@import url('design.css');
-@import url('theme.css');
+@import url('../../vendor/Collabor8-Flat-Design/css/design.css');
+@import url('../../vendor/Collabor8-Flat-Design/css/themes.css');
 
 /* custom styles --------------------------------*/
 
@@ -29,10 +32,6 @@ body {
     font-size: 17px;
     padding-right: 10px;
     line-height: 24px;
-}
-
-#main {
-    margin-left: 200px;
 }
 
 #main .page-header {
