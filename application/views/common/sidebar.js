@@ -12,8 +12,5 @@ define(function(require, exports, module) {
         
         template: require('template!common/sidebar'),
         
-        afterRender: function() {
-            this.$el.parent().delay(200).animate({left: 0}, 100);
-        },
     });
 });

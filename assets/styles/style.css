@@ -24,8 +24,12 @@ body {
     background-image: none; 
 }
 
+#main {
+    margin-left: 235px;
+}
+
 #left {
-    left: -200px;
+    width: 235px;
 }
 
 #left .add-project-btn {
