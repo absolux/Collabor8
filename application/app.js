@@ -13,8 +13,6 @@ define(function(require, exports, module) {
         
         el: 'body',
         
-        template: require('template!common/layout'),
-        
         config: module.config(),
         
         /**
@@ -25,15 +23,7 @@ define(function(require, exports, module) {
             
             options = _.extend({render: true}, options);
             
-            require([
-                'views/common/header', 
-                'views/common/sidebar',
-            ], function(Header, Sidebar) {
-                // check if the header view is rendered
-                if (! self.getView('header') ) {
-                    self.setView('header', new Header()).render();
-                }
-                
+            require(['views/common/sidebar',], function(Sidebar) {
                 // check if the sidebar is rendered
                 if (! self.getView('aside') ) {
                     self.setView('aside', new Sidebar()).render();
