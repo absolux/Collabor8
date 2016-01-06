@@ -1,7 +1,8 @@
 /**
  * 
  */
-define(['backbone', 'underscore'], function(Backbone, _) {
+define(['backbone', 'underscore', './util'],
+function(Backbone, _) {
     'use strict';
     
     /**
@@ -19,7 +20,9 @@ define(['backbone', 'underscore'], function(Backbone, _) {
         this.initialize.apply(this, arguments);
     };
     
-    _.extend(Controller.prototype, {
+    Controller.extend = Backbone.Router.extend;
+    
+    _.extend(Controller.prototype, Backbone.Events, {
         
         /**
          * 
@@ -40,11 +43,6 @@ define(['backbone', 'underscore'], function(Backbone, _) {
          * 
          */
         initialize: _.noop,
-        
-        /**
-         * 
-         */
-        extend: Backbone.Router.extend,
         
         /**
          * 
