@@ -5,6 +5,7 @@
         "moment": "2.10.*",
         "toastr": "2.1.*",
         "requirejs": "2.1.*",
+        "requirejs-text": "2.0.*",
         "jquery": "2.1.*",
         "backbone": "1.2.*",
         "vue": "1.0.*",

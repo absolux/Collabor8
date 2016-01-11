@@ -1,8 +1,8 @@
 /**
  * 
  */
-define(['module', 'jquery', 'router', '_lib/session', '_lib/ui/notifier', './controller'], 
-function(module, $, router, session, notifier, Controller) {
+define(['module', 'jquery', 'router', '_lib/session', '_lib/ui/notifier', './controller', './layout'], 
+function(module, $, router, session, notifier, Controller, layout) {
     'use strict';
     
     // retrieve the module configuration vars
@@ -13,6 +13,9 @@ function(module, $, router, session, notifier, Controller) {
     
     // init the main controller of the core package
     new Controller(router);
+    
+    // render app layout
+    layout.appendTo('body');
     
     // JQuery global ajax request handler
     $(document).ajaxSend(function(event, jqXHR, options) {

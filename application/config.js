@@ -14,23 +14,25 @@ require.config({
         'moment':               "../vendor/moment/moment",
         'vue':                  "../vendor/vue/dist/vue",
         'fullcalendar':         "../vendor/fullcalendar/dist/fullcalendar",
+        'text':                 "../vendor/requirejs-text/text",
     },
     
     config: {
         'core/main': {
-            'locale': "en",
-            'api': "http://localhost/collabor8/api/",
-            'header': "X-Auth-Token",
+            'locale':   "en",
+            'api':      "http://localhost/collabor8/api/",
+            'header':   "X-Auth-Token",
         },
     },
     
     shim: {
         'bootstrap': ['jquery'],
+        '_lib/util': ['underscore', 'backbone'],
     },
     
-    packages: ['core', 'users', 'projects', 'tasks'],
+    packages: ['core', 'users', 'projects', 'tasks', 'calendar'],
     
-    deps: ['layout', 'core'],
+    deps: ['core'],
     
     callback: function() {
         var Backbone = require('backbone');

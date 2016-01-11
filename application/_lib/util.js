@@ -1,3 +1,6 @@
+var _           = require('underscore'),
+    Backbone    = require('backbone');
+
 /**
  * helper to dispose objects
  */
@@ -49,7 +52,7 @@ var __attachView = function(view, $el, options) {
  * Convert an element or selector to JQuery object
  */
 var __to$el = function(el, parent) {
-	var $ = require('backbone').$;
+	var $ = Backbone.$;
 	
 	if ( parent ) {
 		return el ? __to$el(parent).find(el) : __to$el(parent);
@@ -61,3 +64,25 @@ var __to$el = function(el, parent) {
 	
 	return $(el);
 };
+
+// extend underscore
+_.mixin({
+	
+	// capitalize a word
+	capitalize: function(str) {
+		if (! _.isString(str) ) return null;
+		
+		if ( str.length > 1 ) {
+			return str.charAt(0).toUpperCase() + str.substring(1).toLowerCase();
+		}
+		else {
+			return str.charAt(0).toUpperCase();
+		}
+	},
+	
+	// return true if the given argument is a Backbone view.
+	isView: function(arg) {
+		return arg.$el instanceof Backbone.$;
+	},
+	
+});
