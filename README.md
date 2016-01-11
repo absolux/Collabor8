@@ -1,2 +1,2 @@
 # Collabor8
-A Collaborative task management.
+A Collaborative application for project management.
