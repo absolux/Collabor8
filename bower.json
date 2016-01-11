@@ -3,14 +3,13 @@
     "dependencies": {
         "fullcalendar": "2.4.*",
         "moment": "2.10.*",
-        "x-editable": "1.5.*",
         "toastr": "2.1.*",
         "requirejs": "2.1.*",
         "jquery": "2.1.*",
         "backbone": "1.2.*",
-        "layoutmanager": "0.9.*",
-        "lodash-template-loader": "1.0.*",
-        "bootstrap": "3.3.*"
+        "vue": "1.0.*",
+        "bootstrap": "3.3.*",
+        "Collabor8-Flat-Design": "https://github.com/absolux/Collabor8-flat-design.git"
     },
     "devDependencies": {}
 }

@@ -12,12 +12,13 @@ require.config({
         'backbone':             "../vendor/backbone/backbone",
         'bootstrap':            "../vendor/bootstrap/dist/js/bootstrap",
         'moment':               "../vendor/moment/moment",
+        'vue':                  "../vendor/vue/dist/vue",
+        'fullcalendar':         "../vendor/fullcalendar/dist/fullcalendar",
     },
     
     config: {
         'core/main': {
             'locale': "en",
-            'root': "/collabor8/",
             'api': "http://localhost/collabor8/api/",
             'header': "X-Auth-Token",
         },
