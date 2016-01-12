@@ -1,15 +1,15 @@
 /**
  * 
  */
-define(['require', '_lib/composite-view'],
-function(require, View) {
+define(['_lib/view', 'text!../templates/home'],
+function(View, tpl) {
     'use strict';
     
     return View.extend({
         
         className: 'container-fluid',
 		
-		template: require('text!../templates/home'),
+		template: tpl,
         
     });
 });

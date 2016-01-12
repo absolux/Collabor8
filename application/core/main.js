@@ -30,7 +30,7 @@ function(module, $, router, session, notifier, Controller, layout) {
     $(document).ajaxError(function(event, jqXHR, options, thrownError) {
         switch ( jqXHR.status ) {
             case 401: {
-                // show login form
+                layout.showLoginForm();
             }break;
             
             case 422: {

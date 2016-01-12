@@ -11,6 +11,11 @@ function(require, Controller) {
             '': "goHome",
         },
         
-        goHome: function() {},
+        goHome: function() {
+            require(['./views/home', './layout'], function(HomeView, layout) {
+                layout.show(new HomeView);
+            });
+        },
+        
     });
 });
