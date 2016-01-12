@@ -29,6 +29,12 @@ function(require, View, tpl) {
             this.$('aside').removeClass('hidden');
         },
         
+        showLoginForm: function() {
+            require(['./components/login'], function(LoginVue) {
+                new LoginVue({ el: '.modal.login-form' });
+            });
+        },
+        
     });
     
     return new Layout;

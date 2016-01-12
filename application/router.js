@@ -1,8 +1,8 @@
 /**
  * Router class
  */
-define(['backbone', 'underscore', '_lib/util'], 
-function(Backbone, _) {
+define(['backbone', 'underscore', '_lib/session', '_lib/util'], 
+function(Backbone, _, session) {
     'use strict';
     
     var Router = Backbone.Router.extend({
@@ -23,9 +23,17 @@ function(Backbone, _) {
         },
         
         /**
-         * 
+         * before any valid route, check user session
          */
-        before: _.noop,
+        before: function() {
+            if (! session.active ) {
+                require(['core/layout'], function(layout) {
+                    layout.showLoginForm();
+                });
+                
+                return false;
+            }
+        },
         
         /**
          * 
