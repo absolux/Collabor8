@@ -13,6 +13,11 @@ function(require, Backbone, _) {
         helpers: {},
         
         /**
+         * Vue components
+         */
+        components: [],
+        
+        /**
          * 
          */
         render: function() {
@@ -69,6 +74,7 @@ function(require, Backbone, _) {
          * 
          */
         cleanup: function() {
+            _.invoke(this.components, 'destroy');
             this.remove();
         },
         
