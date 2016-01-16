@@ -1,62 +1,32 @@
 /**
  * 
  */
-
-define(function(require, exports, module) {
+define(['_lib/model', '_lib/collection', 'exports'],
+function(Model, Collection, exports) {
     'use strict';
     
-    var Backbone = require('backbone');
-    var Relations = require('lib/relations');
-    var Label = require('./label');
-    var Team = require('./team');
-    var Activity = require('./activity');
-    var Task = require('./task');
-    
-    var _baseUrl = 'projects';
-    var _current = null;
-    
-    var _Model = Backbone.Model.extend({
-        urlRoot: _baseUrl,
+    var Project = Model.extend({
         
-        labels: function() {
-            return Relations.hasMany.call(this, 
-                {key: 'labels', otherKey: 'project', related: Label.Collection});
+        defaults: {
+            'name': null,
+            'desc': null,
         },
         
-        team: function() {
-            return Relations.hasMany.call(this, 
-                {key: 'team', otherKey: 'project', related: Team.Collection});
-        },
-        
-        activity: function() {
-            return Relations.hasMany.call(this, 
-                {key: 'activity', otherKey: 'resource', related: Activity.Collection});
-        },
-        
-        tasks: function() {
-            return Relations.hasMany.call(this, 
-                {key: 'tasks', otherKey: 'project', related: Task.Collection});
-        },
     });
     
-    var _Collection = Backbone.Collection.extend({
-        model: _Model,
+    var Projects = Collection.extend({
         
-        url: _baseUrl,
+        url: 'projects',
+        
+        model: Project,
+        
     });
     
-    // module exports
-    exports.Model       = _Model;
-    exports.Collection  = _Collection;
+    exports.Model = Project;
+    exports.Collection = Projects;
     
     /**
-     * setter/getter of the current project
+     * current user projects collection
      */
-    exports.current = function(id) {
-        if ( id ) {
-            _current = new _Model({'id': id});
-        }
-        
-        return _current;
-    };
+    exports.list = new Projects();
 });
