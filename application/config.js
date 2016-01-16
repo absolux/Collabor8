@@ -32,7 +32,7 @@ require.config({
     
     packages: ['core', 'users', 'projects', 'tasks', 'calendar'],
     
-    deps: ['core', 'projects'],
+    deps: ['core', 'projects', 'users'],
     
     callback: function() {
         var Backbone = require('backbone');
