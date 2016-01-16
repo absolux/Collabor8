@@ -22,7 +22,10 @@ function(require, Controller) {
         },
         
         create: function() {
-            
+            require(['./views/start', 'core/layout', './models/project'], 
+            function(FormView, layout, Project) {
+                layout.show(new FormView({ collection: Project.list }));
+            });
         },
         
         edit: function() {
