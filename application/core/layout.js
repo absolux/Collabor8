@@ -18,8 +18,8 @@ function(require, View, tpl) {
          */
         show: function(view) {
             if ( this.current ) {
-                // dispose the previous current view
-                this.current.dispose();
+                // detach the previous current view
+                this.current.detach();
             }
             
             this.current = view;
