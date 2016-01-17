@@ -1,0 +1,34 @@
+<div class="page-header">
+	<div class="pull-left">
+		<h1>
+			<i class="fa fa-cube"></i>
+			<span><%- obj.name %></span>
+			<small>Dashboard</small>
+		</h1>
+	</div>
+	<div class="pull-right">
+		<ul class="nav nav-pills" style="margin-top: 15px">
+            <li class="active">
+                <a href="#/projects/<%= obj.id %>" class="btn btn-sm">
+                    <i class="fa fa-dashboard"></i> 
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="#/projects/<%= obj.id %>/tasks" class="btn btn-sm">
+                    <i class="fa fa-tasks"></i> 
+                    Tasks
+                </a>
+            </li>
+            <li>
+                <a href="#/projects/<%= obj.id %>/edit" class="btn btn-sm">
+                   <i class="fa fa-cogs"></i>
+                </a>
+            </li>
+        </ul>
+	</div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">To be continued...</div>
+</div>

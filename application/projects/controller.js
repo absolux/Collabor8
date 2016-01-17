@@ -32,8 +32,13 @@ function(require, Controller) {
             
         },
         
-        show: function() {
-            
+        show: function(id) {
+            require(['./views/show', 'core/layout', './models/project'],
+            function(DashView, layout, Project) {
+                var project = Project.list.get(id);
+                
+                layout.show(new DashView({ model: project }));
+            });
         },
         
     });
