@@ -1,0 +1,25 @@
+<div class="page-header">
+	<div class="pull-left">
+		<h1>
+			<i class="fa fa-users"></i>
+			People
+		</h1>
+	</div>
+</div>
+
+<div class="row" role="people-list" style="margin-top: 15px;">
+    <template v-for="user in items">
+        <div class="col-md-2">
+            <div class="thumbnail noborder">
+                <a href="#/people/{{user.id}}">
+                   <img v-bind:src="imgSource + user.id + imgExt" 
+                        class="img-circle" width="100" />
+                    <div class="caption">
+                        <h4 class="text-center">{{user.name}}</h4>
+                    </div> 
+                </a>
+                    
+            </div>
+        </div>
+    </template>
+</div>

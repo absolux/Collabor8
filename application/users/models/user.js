@@ -1,23 +1,31 @@
 /**
  * 
  */
-
-define(function(require, exports, module) {
+define(['_lib/model', '_lib/collection', 'exports'], 
+function(Model, Collection, exports) {
     'use strict';
     
-    var Backbone = require('backbone');
-    
-    var User = Backbone.Model.extend({
+    var Person = Model.extend({
+        
+        defaults: {
+            name: null,
+            email: null,
+        },
         
     });
     
-    var Users = Backbone.Collection.extend({
-        model: User,
+    var People = Collection.extend({
+        
+        model: Person,
         
         url: 'users',
+        
     });
     
     // module exports
-    exports.Model       = User;
-    exports.Collection  = Users;
+    exports.Model       = Person;
+    exports.Collection  = People;
+    
+    exports.current = new Person;
+    exports.list = new People();
 });
