@@ -1,15 +1,15 @@
 /**
  * 
  */
-
-define(function(require, exports, module) {
-	'use strict';
-	
-	var Layout = require('backbone.layout');
-	
-	module.exports = Layout.extend({
-		className: 'container-fluid',
-		
-		template: require('template!account'),
-	});
+define(['require', '_lib/view', 'text!../templates/account'], 
+function(require, View, tpl) {
+    'use strict';
+    
+    return View.extend({
+        
+        className: 'container-fluid',
+        
+        template: tpl,
+        
+    });
 });

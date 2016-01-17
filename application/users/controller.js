@@ -25,7 +25,12 @@ function(require, Controller) {
         },
         
         show: function(id) {
-            
+            require(['./views/account', 'core/layout', './models/user'], 
+            function(AccountView, layout, User) {
+                var user = User.list.get(id);
+                
+                layout.show(new AccountView({ 'model': user }));
+            });
         },
         
     });
