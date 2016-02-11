@@ -9,7 +9,6 @@ function(require, Controller) {
         
         routes: {
             'projects/:pid/tasks': "home",
-            'projects/:pid/tasks/:id': "show",
         },
         
         /**
@@ -18,17 +17,13 @@ function(require, Controller) {
          * @param {int} project id
          */
         home: function(pid) {
-            
-        },
-        
-        /**
-         * show task detail
-         * 
-         * @param {int} project id
-         * @param {int} task id
-         */
-        show: function(pid, id) {
-            
+            require(['core/layout', './views/home', './models/task', 'projects/models/project'],
+            function(layout, HomeView, Task, Project) {
+                var tasks = window.tasks = new Task.Collection();
+                
+                layout.show(new HomeView({ collection: tasks, model: Project.list.get(pid) }));
+                tasks.fetch({ 'reset': true, 'data': { 'project_id': pid } });
+            });
         },
         
     });

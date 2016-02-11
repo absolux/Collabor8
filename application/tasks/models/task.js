@@ -1,47 +1,29 @@
 /**
  * 
  */
-
-define(function(require, exports, module) {
+define(['_lib/model', '_lib/collection', 'exports'],
+function(Model, Collection, exports) {
     'use strict';
     
-    var Backbone = require('backbone');
-    var Relations = require('lib/relations');
-    var Activity = require('./activity');
-    
-    var _Model = Backbone.Model.extend({
+    var Task = Model.extend({
         
         defaults: {
-            name: null,
-            done: false,
-            flag: false,
-            due: null,
-            project_id: null,
-            user_id: null,
-            label_id: null,
+            'name': null,
+            'project_id': null, // project
+            'user_id': null, // author
         },
         
-        activity: function() {
-            return Relations.hasMany.call(this, 
-                {key: 'activity', otherKey: 'resource', related: Activity.Collection});
-        },
     });
     
-    var _Collection = Backbone.Collection.extend({
-        model: _Model,
+    var List = Collection.extend({
         
-        url: function() {
-            return this.project.url() + '/tasks';
-        },
+        model: Task,
         
-        initialize: function(models, options) {
-			if ( options.project ) {
-				this.project = options.project;
-			}
-		},
+        url: 'tasks',
+        
     });
     
     // module exports
-    exports.Model       = _Model;
-    exports.Collection  = _Collection;
+    exports.Model = Task;
+    exports.Collection = List;
 });

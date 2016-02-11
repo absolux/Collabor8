@@ -1,0 +1,103 @@
+<div class="page-header">
+	<div class="pull-left">
+		<h1>
+			<i class="fa fa-cube"></i>
+			<span><%- obj.name %></span>
+			<small>Tasks</small>
+		</h1>
+	</div>
+	<div class="pull-right">
+		<ul class="nav nav-pills" style="margin-top: 15px">
+            <li>
+                <a href="#/projects/<%= obj.id %>" class="btn btn-sm">
+                    <i class="fa fa-dashboard"></i> 
+                    Dashboard
+                </a>
+            </li>
+            <li class="active">
+                <a href="#/projects/<%= obj.id %>/tasks" class="btn btn-sm">
+                    <i class="fa fa-tasks"></i> 
+                    Tasks
+                </a>
+            </li>
+            <li>
+                <a href="#/projects/<%= obj.id %>/edit" class="btn btn-sm">
+                   <i class="fa fa-cogs"></i>
+                </a>
+            </li>
+        </ul>
+	</div>
+</div>
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="panel panel-default">
+            <ul class="list-group" role="task-list">
+                <template v-for="task in items">
+                    <li class="list-group-item">
+                        <span class="task-check">
+                            <a href="#"><i class="fa fa-circle-o"></i></a>
+                        </span>
+                        <span class="task-name">
+                            {{task.name}}
+                        </span>
+                        <div class="task-users pull-right">
+                            <img src="assets/images/demo/user-1.jpg" class="img-circle" width="24">
+                        </div>
+                    </li>
+                </template>
+            </ul>
+            <div class="panel-footer">
+                <form class="create-form">
+                    <input type="text" class="form-control input-sm" placeholder="New task" />
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="panel panel-success">
+            <div class="panel-heading">Statuses</div>
+            <div class="list-group"> 
+                <a class="list-group-item"> 
+                    <span class="badge">14</span> 
+                    Open 
+                </a> 
+                <a class="list-group-item"> 
+                    <span class="badge">2</span> 
+                    In progress
+                </a> 
+                <a class="list-group-item"> 
+                    <span class="badge">0</span> 
+                    On hold
+                </a> 
+                <a class="list-group-item"> 
+                    <span class="badge">1</span> 
+                    Done
+                </a> 
+            </div>
+        </div>
+        
+        <div class="panel panel-info">
+            <div class="panel-heading">Assignees</div>
+            <div class="list-group"> 
+                <a class="list-group-item"> 
+                    <span class="badge">3</span> 
+                    <img src="assets/images/demo/user-1.jpg" class="img-circle" width="24">
+                    Jane MULLER
+                </a> 
+                <a class="list-group-item"> 
+                    <span class="badge">2</span> 
+                    <img src="assets/images/demo/user-2.jpg" class="img-circle" width="24">
+                    John DOE
+                </a> 
+                <a class="list-group-item"> 
+                    <span class="badge">5</span> 
+                    <img src="assets/images/demo/user-3.jpg" class="img-circle" width="24">
+                    Jack BLACK
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</div>
