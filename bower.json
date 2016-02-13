@@ -1,16 +1,15 @@
 {
-    "name": "Collabor8",
-    "dependencies": {
-        "fullcalendar": "2.4.*",
-        "moment": "2.10.*",
-        "toastr": "2.1.*",
-        "requirejs": "2.1.*",
-        "requirejs-text": "2.0.*",
-        "jquery": "2.1.*",
-        "backbone": "1.2.*",
-        "vue": "1.0.*",
-        "bootstrap": "3.3.*",
-        "Collabor8-Flat-Design": "https://github.com/absolux/Collabor8-flat-design.git"
-    },
-    "devDependencies": {}
+  "name": "Collabor8",
+  "dependencies": {
+    "fullcalendar": "2.4.*",
+    "moment": "2.10.*",
+    "toastr": "2.1.*",
+    "requirejs": "2.1.*",
+    "requirejs-text": "2.0.*",
+    "jquery": "2.1.*",
+    "backbone": "1.2.*",
+    "vue": "1.0.*",
+    "bootstrap": "3.3.*",
+    "flat-design": "https://github.com/absolux/Collabor8-flat-design.git"
+  }
 }
