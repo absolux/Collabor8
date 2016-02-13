@@ -1,7 +1,8 @@
 /**
  * 
  */
-define(['router', 'layout', 'common'], function(router) {
+define(['router', 'layout', 'common', 'people'], 
+function(router) {
   'use strict';
   
   // start the router

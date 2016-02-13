@@ -23,7 +23,7 @@ require.config({
     'bootstrap': ['jquery']
   },
   
-  packages: ['common'],
+  packages: ['common', 'people'],
   
   deps: ['main']
   
