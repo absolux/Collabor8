@@ -15,5 +15,18 @@
     <script src="vendor/requirejs/require.js" data-main="config"></script>
   </head>
 
-  <body></body>
+  <body>
+    
+    <div class="container-fluid" v-show="showContent" style="display: none;">
+      
+      <sidebar></sidebar>
+      
+      <main id="main">
+        <component v-bind:is="content" />
+      </main>
+    </div>
+    
+    <login-modal v-bind:show.sync="showModal"></login-modal>
+    
+  </body>
 </html>

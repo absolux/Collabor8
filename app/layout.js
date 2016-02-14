@@ -1,8 +1,8 @@
 /**
  * 
  */
-define(['vue', 'text!common/templates/layout.html', 'lib/session', 'common/views/login'], 
-function(Vue, tpl, session) {
+define(['vue', 'lib/session', 'common/views/login', 'common/views/sidebar'], 
+function(Vue, session) {
   'use strict';
   
   Vue.config.convertAllProperties = true;
@@ -17,7 +17,7 @@ function(Vue, tpl, session) {
     
     replace: false,
     
-    template: tpl,
+    // template: tpl,
     
     data: {
       // current content component
@@ -27,7 +27,7 @@ function(Vue, tpl, session) {
       showModal: false,
       
       // display or not the sidebar
-      showSidebar: session.has('jwt-token')
+      showContent: session.has('jwt-token')
     },
     
     methods: {
