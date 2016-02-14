@@ -1,5 +1,5 @@
 <div class="container-fluid" id="wrapper">
-  <aside id="left" class="-hidden">
+  <aside id="left" v-show="showSidebar", style="display: none;">
     <form class="search-form" onsubmit="return false;">
       <div class="search-pane">
         <input type="text" name="search" placeholder="Search here..." />
@@ -39,7 +39,10 @@
       </ul>
     </div>
   </aside>
+  
   <main id="main">
     <component v-bind:is="content" />
   </main>
+  
+  <login-modal v-bind:show.sync="showModal"></login-modal>
 </div>

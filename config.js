@@ -17,7 +17,13 @@ require.config({
     'text':                 "../vendor/requirejs-text/text",
   },
   
-  config: {},
+  config: {
+    'main': {
+      'locale': "en",
+      'api':    "http://localhost/collabor8/api/",
+      'header': "X-Auth-Token"
+    }
+  },
   
   shim: {
     'bootstrap': ['jquery']

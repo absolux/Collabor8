@@ -1,7 +1,7 @@
 /**
  * 
  */
-define(['backbone', 'lib/session'], function(Backbone, session) {
+define(['backbone', 'lib/session', 'layout'], function(Backbone, session, layout) {
   'use strict';
   
   var AppRouter = Backbone.Router.extend({
@@ -10,9 +10,9 @@ define(['backbone', 'lib/session'], function(Backbone, session) {
      * 
      */
     before: function before() {
-      if ( session.active ) {
-        // TODO display login form
-        
+      // check for active user session
+      if (! session.has('jwt-token') ) {
+        layout.showLogin();
         return false;
       }
     },

@@ -1,7 +1,8 @@
 /**
  * 
  */
-define(['vue', 'text!common/templates/layout.html'], function(Vue, tpl) {
+define(['vue', 'text!common/templates/layout.html', 'lib/session', 'common/views/login'], 
+function(Vue, tpl, session) {
   'use strict';
   
   Vue.config.convertAllProperties = true;
@@ -20,7 +21,13 @@ define(['vue', 'text!common/templates/layout.html'], function(Vue, tpl) {
     
     data: {
       // current content component
-      content: 'loading'
+      content: 'loading',
+      
+      // display or not the login form
+      showModal: false,
+      
+      // display or not the sidebar
+      showSidebar: session.has('jwt-token')
     },
     
     methods: {
@@ -36,6 +43,14 @@ define(['vue', 'text!common/templates/layout.html'], function(Vue, tpl) {
         this.content = 'loading';
         Vue.nextTick(function() { vm.content = component });
         
+        return this;
+      },
+      
+      /**
+       * Display the login form
+       */
+      showLogin: function() {
+        this.showModal = true
         return this;
       }
     }
