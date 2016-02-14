@@ -1,7 +1,7 @@
 /**
  * 
  */
-define(['router', 'layout', 'common', 'people'], 
+define(['router', 'layout', 'common', 'people', 'projects'], 
 function(router) {
   'use strict';
   
