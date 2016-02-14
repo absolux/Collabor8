@@ -1,20 +1,32 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <title>Collabor8</title>
+    <title>Collabor8</title>
 
-        <!-- Application styles. -->
-        <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="assets/styles/style.css" />
-        
-        
-        <!-- Application source. -->
-        <script src="vendor/requirejs/require.js" data-main="application/boot"></script>
-    </head>
+    <!-- Application styles. -->
+    <link rel="stylesheet" href="assets/styles/style.css" />
 
-    <body class="theme-satblue"></body>
+
+    <!-- Application source. -->
+    <script src="vendor/requirejs/require.js" data-main="config"></script>
+  </head>
+
+  <body>
+    
+    <div class="container-fluid" v-show="showContent" style="display: none;">
+      
+      <sidebar></sidebar>
+      
+      <main id="main">
+        <component v-bind:is="content" />
+      </main>
+    </div>
+    
+    <login-modal v-bind:show.sync="showModal"></login-modal>
+    
+  </body>
 </html>

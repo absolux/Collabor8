@@ -2,10 +2,13 @@
  * 
  */
 
+@import url('../../vendor/bootstrap/dist/css/bootstrap.min.css');
+@import url('../../vendor/fontawesome/css/font-awesome.min.css');
+
 @import url('plugins.css');
 
-@import url('design.css');
-@import url('theme.css');
+@import url('../../vendor/flat-design/css/design.css');
+@import url('../../vendor/flat-design/css/themes.css');
 
 /* custom styles --------------------------------*/
 
@@ -21,18 +24,18 @@ body {
     background-image: none; 
 }
 
+#main {
+    margin-left: 235px;
+}
+
 #left {
-    left: -200px;
+    width: 235px;
 }
 
 #left .add-project-btn {
     font-size: 17px;
     padding-right: 10px;
     line-height: 24px;
-}
-
-#main {
-    margin-left: 200px;
 }
 
 #main .page-header {
@@ -126,4 +129,12 @@ body {
 
 .activity-stream strong {
     color: #777;
+}
+
+.fc-event {
+  color: #fff !important;
+}
+
+.fc .fc-toolbar .fc-state-active {
+    background: #2c5e7b;
 }
